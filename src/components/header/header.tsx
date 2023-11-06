@@ -4,7 +4,7 @@ export function Header() {
   return (
     <header>
       <img
-        src="../../../public/logoheader.png"
+        src="../../../logoheader.png"
         alt="imagen de logotipo de Elden Ring"
       />
       <h1>Elden Ring </h1>
