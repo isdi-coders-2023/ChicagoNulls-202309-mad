@@ -1,5 +1,6 @@
 import './app.scss';
+import { Header } from '../header/header';
 
-function App() {}
-
-export default App;
+export default function App() {
+  return <Header></Header>;
+}
