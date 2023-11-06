@@ -1,9 +1,6 @@
 import './header.scss';
 
-//type Props = {
-//  children: JSX.Element;
-//};
-export function Header(/* children }: Props */) {
+export function Header() {
   return (
     <header>
       <img
@@ -11,8 +8,6 @@ export function Header(/* children }: Props */) {
         alt="imagen de logotipo de Elden Ring"
       />
       <h1>Elden Ring </h1>
-
-      {/*  {children} */}
     </header>
   );
 }
