@@ -1,6 +1,9 @@
-import { screen, render } from '@testing-library/react';
+/* import { screen, render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Header } from './header';
+import { Menu } from "../menu/menu";
+
+jest.mock('../menu/menu');
 
 describe('Given Header component', () => {
   describe('When we instantiate', () => {
@@ -8,9 +11,29 @@ describe('Given Header component', () => {
       render(<Header></Header>);
     });
 
-    test('Then it should be the role', () => {
+    test('Then it should be in the document', () => {
       const element = screen.getByRole('heading');
       expect(element).toBeInTheDocument();
+      const Menu = screen.getByRole('list');
+      expect(Menu).toBeInTheDocument();
+    });
+  });
+}); */
+import { screen, render } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import { Header } from './header';
+import { Menu } from '../menu/menu';
+
+jest.mock('../menu/menu');
+
+describe('Given Header component', () => {
+  describe('When we instantiate', () => {
+    beforeEach(() => {
+      render(<Header menuOptions={[]}></Header>);
+    });
+
+    test('Then it should be in the document', () => {
+      expect(Menu).toHaveBeenCalled();
     });
   });
 });
