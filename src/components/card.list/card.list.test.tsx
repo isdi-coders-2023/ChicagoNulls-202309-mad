@@ -2,13 +2,11 @@ import { screen, render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { CardList } from './card.list';
 
-describe('Given CardList component', () => {
+describe('Given List component', () => {
   describe('When we instantiate', () => {
-    beforeEach(() => {
-      render(<CardList></CardList>);
-    });
+    render(<CardList></CardList>);
 
-    test('Then it should be the role', () => {
+    test('It should be in the document', () => {
       const element = screen.getByRole('list');
       expect(element).toBeInTheDocument();
     });
