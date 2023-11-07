@@ -4,10 +4,12 @@ type Props = {
   character: CharacterStructure;
 };
 export function Card({ character }: Props) {
-  console.log(character);
+  const imageUrl = 'https://eldenring.fanapis.com/images/classes/';
+  const imageType = '.png';
+
   return (
     <li className="Card">
-      <img src="" alt="" />
+      <img src={imageUrl + character.id + imageType} alt="" />
       <button>Show details</button>
     </li>
   );
