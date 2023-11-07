@@ -1,0 +1,28 @@
+.filter-button {
+  float: right;
+}
+
+select {
+  border: 1px solid transparent;
+  border-radius: 25px;
+  background-color: transparent;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+option:checked,
+option:hover {
+  color: white;
+  background: #488f8f repeat url('mycolor.gif');
+}
+
+option {
+  border: 1px solid transparent;
+  border-radius: 25px;
+  background-color: transparent;
+}
+
+label {
+  border: 1px solid transparent;
+}
