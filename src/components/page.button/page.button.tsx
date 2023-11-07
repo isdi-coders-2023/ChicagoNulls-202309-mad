@@ -1,10 +1,7 @@
-type Props = {
-  onClick: () => void; // Cambia el nombre de la prop a "onClick"
-};
-
-export function PageButton({ onClick }: Props) {
+import './page.button.scss';
+export function PageButton() {
   return (
-    <button className="pageButton" onClick={onClick}>
+    <button className="pageButton">
       <img src={''} alt="imagen de ave simbolizando una flecha" />
     </button>
   );
