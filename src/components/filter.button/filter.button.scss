@@ -5,16 +5,16 @@
 select {
   border: 1px solid transparent;
   border-radius: 25px;
-  background-color: transparent;
   background: rgba(0, 0, 0, 0.3);
-  color: #fff;
+  color: #ffc34f;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+  font-family: 'MedievalSharp';
 }
 
 option:checked,
 option:hover {
-  color: white;
-  background: #488f8f repeat url('mycolor.gif');
+  color: #ffc34f;
+  background: #488f8f;
 }
 
 option {
