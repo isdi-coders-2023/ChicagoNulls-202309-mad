@@ -55,11 +55,11 @@ Requisitos:
 - Diseño en Figma
 - Listado de componentes y responsabilidades
 - Trello:
-  - Columnas Backlog, ToDo, In progress, Review/Testing y Done
+  - Columnas Backlog, ToDo, In progress, Review/Testing, Done
 
 Entregamos en Discord:
 
-- Nombre y url API
+- Nombre y url API: https://docs.eldenring.fanapis.com/docs/
 - Link Figma
 - Link Trello
 - Link Listado componentes
