@@ -19,7 +19,7 @@ describe('Given Header component', () => {
     });
   });
 }); */
-import { screen, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Header } from './header';
 import { Menu } from '../menu/menu';
@@ -29,7 +29,7 @@ jest.mock('../menu/menu');
 describe('Given Header component', () => {
   describe('When we instantiate', () => {
     beforeEach(() => {
-      render(<Header menuOptions={[]}></Header>);
+      render(<Header></Header>);
     });
 
     test('Then it should be in the document', () => {
