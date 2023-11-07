@@ -1,3 +1,10 @@
+import { ApiRepo } from "../../services/api.repo";
+
 export function CardList() {
-  return <ul></ul>;
+  const repo = new ApiRepo
+  const classes = repo.getClasses()
+const bosses = repo.getBosses()
+  return <ul>
+    {classes.map((class) => <Card character={class}></Card>)}
+    </ul>;
 }
