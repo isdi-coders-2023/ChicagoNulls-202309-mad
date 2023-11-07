@@ -59,7 +59,7 @@ Requisitos:
 
 Entregamos en Discord:
 
-- Nombre y url API
+- Nombre y url API: https://docs.eldenring.fanapis.com/docs/
 - Link Figma
 - Link Trello
 - Link Listado componentes
