@@ -1,0 +1,28 @@
+.filter-button {
+  float: right;
+}
+
+select {
+  border: 1px solid transparent;
+  border-radius: 25px;
+  background: rgba(0, 0, 0, 0.3);
+  color: #ffc34f;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+  font-family: 'MedievalSharp';
+}
+
+option:checked,
+option:hover {
+  color: #ffc34f;
+  background: #488f8f;
+}
+
+option {
+  border: 1px solid transparent;
+  border-radius: 25px;
+  background-color: transparent;
+}
+
+label {
+  border: 1px solid transparent;
+}
