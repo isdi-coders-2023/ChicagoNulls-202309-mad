@@ -1,7 +1,6 @@
 import { Characters } from './characters';
 import { screen, render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import {} from 'module';
 import { CardList } from '../card.list/card.list';
 
 describe('Given Characters component', () => {
