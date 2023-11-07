@@ -55,7 +55,7 @@ Requisitos:
 - Diseño en Figma
 - Listado de componentes y responsabilidades
 - Trello:
-  - Columnas Backlog, ToDo, In progress, Review/Testing y Done
+  - Columnas Backlog, ToDo, In progress, Review/Testing, Done
 
 Entregamos en Discord:
 
