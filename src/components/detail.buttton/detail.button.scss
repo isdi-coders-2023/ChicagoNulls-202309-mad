@@ -1,0 +1,20 @@
+button {
+  background-color: transparent;
+  border: none;
+  color: #ffc34f;
+  font-family: 'MedievalSharp';
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 47vh;
+  width: 100%;
+}
+
+@media (width < 480px) {
+  .button-container {
+    top: 65vh;
+  }
+}

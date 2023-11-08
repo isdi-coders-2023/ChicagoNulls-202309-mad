@@ -4,6 +4,8 @@ import { Characters } from '../characters/characters';
 import { CardList } from '../card.list/card.list';
 import { Footer } from '../footer/footer';
 import { FilterButton } from '../filter.button/filter.button';
+import { PageButton } from '../page.button/page.button';
+import { DetailButton } from '../detail.buttton/detail.button';
 
 export default function App() {
   return (
@@ -13,6 +15,8 @@ export default function App() {
         <>
           <FilterButton></FilterButton>
           <CardList></CardList>
+          <PageButton></PageButton>
+          <DetailButton></DetailButton>
         </>
       </Characters>
       <Footer></Footer>
