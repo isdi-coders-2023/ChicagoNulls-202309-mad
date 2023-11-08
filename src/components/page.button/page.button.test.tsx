@@ -2,14 +2,19 @@ import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { PageButton } from './page.button';
 
-describe('PageButton Component', () => {
-  it('should render the PageButton component', () => {
-    // Renderiza el componente
-    const { getByRole } = render(<PageButton />);
-
-    const button = getByRole('button', {
-      name: /imagen de ave simbolizando una flecha/i,
+describe('Given PageButton component', () => {
+  describe('When we instantiate', () => {
+    beforeEach(() => {
+      render(<PageButton></PageButton>);
     });
-    expect(button).toBeInTheDocument();
+
+    test('Then it should be the role', () => {
+      const image = document.querySelector(
+        '.image-birds-pagination-previous img'
+      );
+      const expectedAltText = 'imagenes de pajaros de paginado';
+
+      expect(image).toHaveAttribute('alt', expectedAltText);
+    });
   });
 });
