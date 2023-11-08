@@ -19,3 +19,8 @@ export type CharacterStructure = {
     arcane?: string;
   };
 };
+
+export type ApiResponse = {
+  count: number;
+  data: CharacterStructure[];
+};
