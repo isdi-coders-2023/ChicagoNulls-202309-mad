@@ -1,5 +1,6 @@
+import { useEffect, useContext } from 'react';
 import { AppContext } from '../../context/context';
-import { useClasses } from '../../hooks/useClasses';
+import { Card } from '../card/card.tsx';
 
 // const {
 //   tasksTools: { tasks, loadTasks },
@@ -7,13 +8,20 @@ import { useClasses } from '../../hooks/useClasses';
 
 export function CardList() {
   const {
-    characterTools: { characters, loadCharacters },
-  } = useClasses(AppContext);
+    charactersTools: { characters, loadCharacters },
+  } = useContext(AppContext);
+
+  useEffect(() => {
+    loadCharacters();
+  }, [loadCharacters]);
+
+  const charactersObject = characters.data;
+  console.log(charactersObject);
 
   return (
     <ul>
-      {classes.map((item) => (
-        <Card character={item}></Card>
+      {charactersObject.map((item) => (
+        <Card key={item.id} character={item}></Card>
       ))}
     </ul>
   );
