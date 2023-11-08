@@ -1,15 +1,20 @@
 import { CharacterStructure } from '../models/eldenring.api';
 import { ActionCharacters } from './actions';
 
+export type AppState = {
+  characters: CharacterStructure[];
+  filter: string;
+};
+
 export function charactersReducer(
-  state: CharacterStructure[],
+  state: AppState,
   { type, payload }: ActionCharacters
-): CharacterStructure[] {
+): AppState {
   switch (type) {
     case 'load':
-      return payload;
+      return { ...state, characters: payload };
 
     default:
-      return [...state];
+      return { ...state };
   }
 }

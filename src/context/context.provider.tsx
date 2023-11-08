@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { AppContext, ContextStructure } from './context';
 import { useCharacters } from '../hooks/use.characters';
 
@@ -7,14 +6,14 @@ type Props = {
 };
 
 export function AppContextProvider({ children }: Props) {
-  const [filterCase, setFilterCase] = useState('');
+  // const [filterCase, setFilterCase] = useState('');
 
-  const charactersState = useCharacters();
+  const { characters, loadCharacters } = useCharacters();
 
   const context: ContextStructure = {
-    filterCase,
-    setFilterCase,
-    charactersTools: charactersState,
+    characters,
+    filter: '',
+    loadCharacters,
   };
 
   return <AppContext.Provider value={context}>{children}</AppContext.Provider>;

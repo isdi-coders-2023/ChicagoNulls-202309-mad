@@ -5,7 +5,9 @@ describe('Given ApiRepo class', () => {
   describe('When we instantiate it and response is ok', () => {
     let jsonMock: jest.Mock;
     beforeEach(() => {
-      jsonMock = jest.fn().mockResolvedValue([]);
+      jsonMock = jest
+        .fn()
+        .mockResolvedValue({ data: [] as CharacterStructure[] });
       global.fetch = jest.fn().mockResolvedValueOnce({
         ok: true,
         json: jsonMock,
@@ -13,7 +15,7 @@ describe('Given ApiRepo class', () => {
     });
     test('Then method getClasses should be used', async () => {
       const repo = new ApiRepo();
-      const expected: CharacterStructure[] = [];
+      const expected = [] as CharacterStructure[];
       const result = await repo.getClasses();
       expect(jsonMock).toHaveBeenCalled();
       expect(result).toStrictEqual(expected);

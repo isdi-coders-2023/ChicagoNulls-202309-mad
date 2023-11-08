@@ -1,14 +1,13 @@
 import { Characters } from './characters';
 import { screen, render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { CardList } from '../card.list/card.list';
 
 describe('Given Characters component', () => {
   describe('When we instantiate', () => {
     beforeEach(() => {
       render(
         <Characters>
-          <CardList></CardList>
+          <></>
         </Characters>
       );
     });

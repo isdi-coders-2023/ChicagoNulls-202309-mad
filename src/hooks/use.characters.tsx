@@ -1,10 +1,14 @@
 import { useCallback, useMemo, useReducer } from 'react';
 import { ApiRepo } from '../services/api.repo';
-import { charactersReducer } from '../reducers/reducer';
+import { AppState, charactersReducer } from '../reducers/reducer';
 import * as ac from '../reducers/actions';
 
 export function useCharacters() {
-  const [characters, dispatch] = useReducer(charactersReducer, []);
+  const initialState: AppState = {
+    characters: [],
+    filter: '',
+  };
+  const [appState, dispatch] = useReducer(charactersReducer, initialState);
 
   const repo = useMemo(() => new ApiRepo(), []);
 
@@ -19,7 +23,8 @@ export function useCharacters() {
   }, [repo]);
 
   return {
-    characters,
+    characters: appState.characters,
+    filter: appState.filter,
     loadCharacters,
   };
 }
