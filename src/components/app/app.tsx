@@ -14,7 +14,6 @@ export default function App() {
       <Characters>
         <>
           <FilterButton></FilterButton>
-          <PageButton></PageButton>
           <CardList></CardList>
           <PageButton></PageButton>
           <DetailButton></DetailButton>

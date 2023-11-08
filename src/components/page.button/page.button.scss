@@ -1,3 +1,32 @@
-.pageButton {
-  background: none;
+@media (width < 480px) {
+  .image-birds-container {
+    display: none;
+  }
+
+  .image-birds-pagination-previous {
+    display: none;
+  }
+
+  .image-birds-pagination-next {
+    display: none;
+  }
+}
+
+@media (width > 480px) {
+  .image-birds-container {
+    display: flex;
+    background: none;
+    position: relative;
+    justify-content: space-between;
+    top: 25vh;
+    width: 100%;
+  }
+
+  .image-birds-pagination-previous {
+    transform: rotate(0deg);
+  }
+
+  .image-birds-pagination-next {
+    transform: rotate(260deg);
+  }
 }
