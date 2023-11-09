@@ -25,7 +25,7 @@ describe('charactersReducer', () => {
   it('should handle an action to change the page', () => {
     const initialState = {
       Characters
-      filter: ''
+      filter: '',
     };
 
     const action = changePageActionCreator(2);
