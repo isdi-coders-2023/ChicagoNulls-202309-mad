@@ -10,7 +10,7 @@ describe('charactersReducer', () => {
       characters: [],
       page: 0,
       // filter: '',
-
+    };
 
     const charactersData: CharacterStructure[] = [
       { name: { common: 'Hola' } } as unknown as CharacterStructure,
@@ -24,7 +24,6 @@ describe('charactersReducer', () => {
       characters: charactersData,
       // filter: '',
       page: 0,
-
     });
   });
 });
