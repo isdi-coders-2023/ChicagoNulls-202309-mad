@@ -1,4 +1,8 @@
-@media (width < 480px) {
+img.bird {
+  background: none;
+}
+
+@media (width < 500px) {
   .image-birds-container {
     display: flex;
     justify-content: space-between;
@@ -15,7 +19,7 @@
   }
 }
 
-@media (width > 480px) {
+@media (width > 500px) {
   .image-birds-container {
     display: flex;
     background: none;
