@@ -3,7 +3,8 @@ import { ActionCharacters } from './actions';
 
 export type AppState = {
   characters: CharacterStructure[];
-  filter: string;
+  // filter: string;
+  page: number;
 };
 
 export function charactersReducer(
@@ -13,6 +14,9 @@ export function charactersReducer(
   switch (type) {
     case 'load':
       return { ...state, characters: payload };
+
+    case 'page':
+      return { characters: state.characters, page: payload };
 
     default:
       return { ...state };

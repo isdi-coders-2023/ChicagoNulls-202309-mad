@@ -6,15 +6,7 @@ type Props = {
 };
 
 export function AppContextProvider({ children }: Props) {
-  // const [filterCase, setFilterCase] = useState('');
-
-  const { characters, loadCharacters } = useCharacters();
-
-  const context: ContextStructure = {
-    characters,
-    filter: '',
-    loadCharacters,
-  };
-
+  const charactersState = useCharacters();
+  const context: ContextStructure = charactersState;
   return <AppContext.Provider value={context}>{children}</AppContext.Provider>;
 }

@@ -8,7 +8,8 @@ describe('charactersReducer', () => {
     // Given
     const initialState: AppState = {
       characters: [],
-      filter: '',
+      page: 0,
+      // filter: '',
     };
 
     const charactersData: CharacterStructure[] = [
@@ -21,7 +22,8 @@ describe('charactersReducer', () => {
 
     expect(newState).toEqual({
       characters: charactersData,
-      filter: '',
+      // filter: '',
+      page: 0,
     });
   });
 });

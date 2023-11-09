@@ -1,16 +1,18 @@
-import { useCallback, useMemo, useReducer } from 'react';
+import { SyntheticEvent, useCallback, useMemo, useReducer } from 'react';
 import { ApiRepo } from '../services/api.repo';
 import { AppState, charactersReducer } from '../reducers/reducer';
 import * as ac from '../reducers/actions';
+import { changePage } from '../reducers/actions';
 
 export function useCharacters() {
   const initialState: AppState = {
     characters: [],
-    filter: '',
+    // filter: '',
+    page: 0,
   };
   const [appState, dispatch] = useReducer(charactersReducer, initialState);
 
-  const repo = useMemo(() => new ApiRepo(), []);
+  const repo = useMemo(() => new ApiRepo(appState.page), [appState.page]);
 
   const loadCharacters = useCallback(async () => {
     try {
@@ -22,9 +24,23 @@ export function useCharacters() {
     }
   }, [repo]);
 
+  const handleNext = (event: SyntheticEvent) => {
+    event.preventDefault();
+    dispatch(changePage(appState.page + 1));
+  };
+
+  const handlePrevious = (event: SyntheticEvent) => {
+    event.preventDefault();
+    dispatch(changePage(appState.page - 1));
+  };
+
   return {
     characters: appState.characters,
-    filter: appState.filter,
+    // filter: appState.filter,
+    page: initialState.page,
+    appState,
     loadCharacters,
+    handleNext,
+    handlePrevious,
   };
 }

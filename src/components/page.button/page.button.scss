@@ -1,14 +1,17 @@
 @media (width < 480px) {
   .image-birds-container {
-    display: none;
+    display: flex;
+    justify-content: space-between;
   }
 
   .image-birds-pagination-previous {
-    display: none;
+    transform: rotate(0deg);
+    cursor: pointer;
   }
 
   .image-birds-pagination-next {
-    display: none;
+    transform: rotate(260deg);
+    cursor: pointer;
   }
 }
 

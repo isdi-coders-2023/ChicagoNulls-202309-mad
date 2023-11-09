@@ -1,8 +1,8 @@
 import { useEffect, useContext } from 'react';
 import { AppContext } from '../../context/context';
 import { Card } from '../card/card.tsx';
-import { CharacterStructure } from '../../models/eldenring.api.tsx';
 import './card.list.scss';
+import { CharacterStructure } from '../../models/eldenring.api.tsx';
 
 // const {
 //   tasksTools: { tasks, loadTasks },
