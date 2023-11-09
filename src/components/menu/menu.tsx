@@ -8,7 +8,7 @@ type Props = {
 
 export function Menu({ options }: Props) {
   return (
-    <nav role="list">
+    <nav role="menu">
       <ul>
         {options.map((item) => (
           <li key={item.label}>

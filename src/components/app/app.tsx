@@ -12,12 +12,3 @@ export default function App() {
     </>
   );
 }
-
-//  <Characters>
-//    <>
-//      <FilterButton></FilterButton>
-//      <CardList></CardList>
-//      <PageButton></PageButton>
-//      <DetailButton></DetailButton>
-//    </>
-//  </Characters>;
