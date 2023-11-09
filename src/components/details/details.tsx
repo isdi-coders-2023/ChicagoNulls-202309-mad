@@ -1,4 +1,5 @@
 import { CharacterStructure } from '../../models/eldenring.api';
+import './details.scss';
 
 type Props = {
   character: CharacterStructure;
@@ -38,6 +39,9 @@ export function Details({ character }: Props) {
           />
         </aside>
       </div>
+      <footer>
+        <button>Go back</button>
+      </footer>
     </div>
   );
 }
