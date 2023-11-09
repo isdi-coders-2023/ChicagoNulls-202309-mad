@@ -4,10 +4,6 @@ import { Card } from '../card/card.tsx';
 import './card.list.scss';
 import { CharacterStructure } from '../../models/eldenring.api.tsx';
 
-// const {
-//   tasksTools: { tasks, loadTasks },
-// } = useContext(AppContext);
-
 export function CardList() {
   const { characters, loadCharacters } = useContext(AppContext);
 
