@@ -5,7 +5,7 @@ type Props = {
   character: CharacterStructure;
 };
 
-export function Details({ character }: Props) {
+export function Details({ character }: Readonly<Props>) {
   return (
     <div className="card-container">
       <header className="card-title">
