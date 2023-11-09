@@ -2,6 +2,11 @@ import { CharacterStructure } from '../models/eldenring.api';
 
 export type ActionCharacterTypes = 'load';
 
+export type State = {
+  characters: CharacterStructure[];
+  page: number;
+};
+
 type ActionCharactersAll = {
   type: 'load';
   payload: CharacterStructure[];

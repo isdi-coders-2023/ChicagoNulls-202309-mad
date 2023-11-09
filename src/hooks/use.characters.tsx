@@ -37,6 +37,7 @@ export function useCharacters() {
   return {
     characters: appState.characters,
     // filter: appState.filter,
+    page: initialState.page,
     appState,
     loadCharacters,
     handleNext,

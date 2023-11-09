@@ -1,13 +1,9 @@
 import { AppContext } from '../../context/context';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import './page.button.scss';
 
 export function PageButton() {
   const { appState, handleNext, handlePrevious } = useContext(AppContext);
-
-  useEffect(() => {
-    console.log(appState.page);
-  }, [appState.page]);
 
   return (
     <div className="image-birds-container">
