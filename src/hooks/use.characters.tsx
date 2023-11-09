@@ -31,7 +31,9 @@ export function useCharacters() {
 
   const handlePrevious = (event: SyntheticEvent) => {
     event.preventDefault();
-    dispatch(changePage(appState.page - 1));
+
+    const newPage = Math.max(0, appState.page - 1);
+    dispatch(changePage(newPage));
   };
 
   return {

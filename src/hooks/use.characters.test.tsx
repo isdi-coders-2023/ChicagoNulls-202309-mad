@@ -1,61 +1,48 @@
-import { act } from 'react-dom/test-utils';
+import { act, renderHook } from '@testing-library/react';
 import { useCharacters } from './use.characters';
-import { CharacterStructure } from '../models/eldenring.api';
-import '@testing-library/jest-dom';
-import '@testing-library/react';
 
-// Simulamos una respuesta de API ficticia
-jest.mock('../services/api.repo', () => {
-  return {
-    ApiRepo: jest.fn().mockImplementation(() => {
-      return {
-        getCharacters: jest
-          .fn()
-          .mockResolvedValue(['Character 1', 'Character 2']),
-      };
-    }),
-  };
-});
+jest.mock('../services/api.repo', () => ({
+  ApiRepo: jest.fn(() => ({
+    getCharacter: jest.fn(() => Promise.resolve([])),
+  })),
+}));
 
-describe('useCharacters hook', () => {
-  it('loads characters and handles pagination', async () => {
-    let result: {
-      loadCharacters: any;
-      appState: any;
-      handleNext: any;
-      handlePrevious: any;
-      characters?: CharacterStructure[];
-      page?: number;
-    };
-
-    // Given
-    act(() => {
-      result = useCharacters();
+describe('Given useCharacter custom Hook', () => {
+  describe('useCharacter Hook', () => {
+    it('should load characters and update state', async () => {
+      const { result } = renderHook(() => useCharacters());
+      act(() => {
+        result.current.loadCharacters();
+      });
+      expect(result.current.appState.characters).toHaveLength(0);
     });
 
-    // When
-    await act(async () => {
-      await result.loadCharacters();
+    it('should change the page correctly', () => {
+      const { result } = renderHook(() => useCharacters());
+      const event = { preventDefault: () => {} } as React.SyntheticEvent;
+
+      act(() => {
+        result.current.handleNext(event);
+      });
+      expect(result.current.appState.page).toBe(1);
+      act(() => {
+        result.current.handleNext(event);
+      });
+      expect(result.current.appState.page).toBe(2);
+      act(() => {
+        result.current.handleNext(event);
+      });
+      expect(result.current.appState.page).toBe(3);
     });
 
-    // Then
-    expect(result.appState.characters).toHaveLengthGreaterThan(0); // Ajusta según tus expectativas reales
-    expect(result.appState.page).toBe(0);
+    it('should handle decrement that goes below the minimum page correctly', () => {
+      const { result } = renderHook(() => useCharacters());
+      const event = { preventDefault: () => {} } as React.SyntheticEvent;
 
-    // When (simulate clicking the next page)
-    act(() => {
-      result.handleNext({ preventDefault: jest.fn() });
+      act(() => {
+        result.current.handlePrevious(event);
+      });
+      expect(result.current.appState.page).toBe(0);
     });
-
-    // Then
-    expect(result.appState.page).toBe(1);
-
-    // When (simulate clicking the previous page)
-    act(() => {
-      result.handlePrevious({ preventDefault: jest.fn() });
-    });
-
-    // Then
-    expect(result.appState.page).toBe(0);
   });
 });
