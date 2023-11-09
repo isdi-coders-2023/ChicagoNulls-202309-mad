@@ -1,37 +1,26 @@
-import { charactersReducer } from './reducer';
+import '@testing-library/jest-dom';
+import { AppState, charactersReducer } from './reducer';
 import { ActionCharacters, loadActionCreator } from './actions';
-
+import { CharacterStructure } from '../models/eldenring.api';
 
 describe('charactersReducer', () => {
-  it('should handle "load" action correctly', () => {
-    const initialState = {
-      Characters: [],
+  it('Given an initial state and a "load" action, When reducing the state, Then the characters should be updated', () => {
+    const initialState: AppState = {
+      characters: [],
       filter: '',
     };
 
-    const payload = [{ name: { common: 'Hola' } } as Characters];
+    const charactersData: CharacterStructure[] = [
+      { name: { common: 'Hola' } } as unknown as CharacterStructure,
+    ];
 
-    const action = loadActionCreator(payload);
+    const action: ActionCharacters = loadActionCreator(charactersData);
+
     const newState = charactersReducer(initialState, action);
 
     expect(newState).toEqual({
-        characters: payload,
-        filter: ''
-    });
-  });
-});
-
-describe('charactersReducer', () => {
-  it('should handle an action to change the page', () => {
-    const initialState = {
-      Characters
+      characters: charactersData,
       filter: '',
-    };
-
-    const action = changePageActionCreator(2);
-
-    const newState = charactersReducer(initialState, action);
-
-    expect(newState.page).toBe(2);
+    });
   });
 });

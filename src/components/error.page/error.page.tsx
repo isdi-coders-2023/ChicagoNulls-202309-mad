@@ -1,3 +1,7 @@
 export function ErrorPage() {
-  return <h2>404 Not Found</h2>;
+  return (
+    <div className="error-page-container">
+      <h2>404</h2>;<h3>Not Found</h3>;
+    </div>
+  );
 }
