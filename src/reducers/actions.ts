@@ -3,7 +3,7 @@ import { CharacterStructure } from '../models/eldenring.api';
 export type ActionCharacterTypes = 'load';
 
 type ActionCharactersAll = {
-  type: 'load';
+  type: 'load' /* | ' default' */;
   payload: CharacterStructure[];
 };
 

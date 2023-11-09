@@ -5,6 +5,9 @@ import { CharacterStructure } from '../models/eldenring.api';
 
 describe('charactersReducer', () => {
   it('Given an initial state and a "load" action, When reducing the state, Then the characters should be updated', () => {
+
+    // Given
+ main
     const initialState: AppState = {
       characters: [],
       filter: '',

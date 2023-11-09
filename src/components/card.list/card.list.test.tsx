@@ -4,7 +4,7 @@ import { CardList } from './card.list';
 import { AppContext, ContextStructure } from '../../context/context';
 
 const mockContext: ContextStructure = {
-  characters: [{ name: 'Hero' }],
+  characters: [{ name: 'Hero', id: 4 }],
   loadCharacters: jest.fn(),
 } as unknown as ContextStructure;
 

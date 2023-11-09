@@ -4,3 +4,9 @@ h1 {
   color: transparent;
   top: -999999999999999999999999999999999999px;
 }
+
+@media (width < 480px) {
+  .container-header-img {
+    width: 230px;
+  }
+}
