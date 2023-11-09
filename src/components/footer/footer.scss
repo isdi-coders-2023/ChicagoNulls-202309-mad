@@ -5,11 +5,10 @@ footer {
   width: 100%;
   gap: 0.5rem;
   position: relative;
-  top: 70vh;
 }
 
 @media (width > 480px) {
   footer {
-    top: 55vh;
+    top: -10vh;
   }
 }

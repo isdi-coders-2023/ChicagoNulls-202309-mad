@@ -9,8 +9,8 @@ describe('Given DetailButton component', () => {
     });
 
     test('Then it should be the role', () => {
-      const element = screen.getByRole('button');
-      expect(element).toBeInTheDocument();
+      const element = screen.getAllByRole('button');
+      expect(element[0]).toBeInTheDocument();
     });
   });
 });
