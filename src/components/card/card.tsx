@@ -10,7 +10,6 @@ export function Card({ character }: Props) {
   return (
     <li className="Card">
       <img src={imageUrl + character.id + imageType} alt={character.name} />
-      <button>Show details</button>
     </li>
   );
 }

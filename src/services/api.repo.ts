@@ -1,7 +1,7 @@
 import { ApiResponse, CharacterStructure } from '../models/eldenring.api';
 export class ApiRepo {
-  apiUrlClasses = 'https://eldenring.fanapis.com/api/classes';
-  apiUrlBosses = 'https://eldenring.fanapis.com/api/bosses';
+  apiUrlClasses = 'https://eldenring.fanapis.com/api/classes?limit=3&page=0';
+  apiUrlBosses = 'https://eldenring.fanapis.com/api/bosses?limit=3&page=0';
 
   async getClasses(): Promise<CharacterStructure[]> {
     const response = await fetch(this.apiUrlClasses);

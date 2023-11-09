@@ -18,15 +18,17 @@
     background: none;
     position: relative;
     justify-content: space-between;
-    top: 25vh;
+    bottom: 30vh;
     width: 100%;
   }
 
   .image-birds-pagination-previous {
     transform: rotate(0deg);
+    cursor: pointer;
   }
 
   .image-birds-pagination-next {
     transform: rotate(260deg);
+    cursor: pointer;
   }
 }

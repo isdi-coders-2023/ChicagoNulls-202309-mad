@@ -1,5 +1,7 @@
 .filter-button {
   float: right;
+  position: relative;
+  bottom: 7vh;
 }
 
 select {
@@ -25,4 +27,12 @@ option {
 
 label {
   border: 1px solid transparent;
+}
+
+@media (width < 480px) {
+  .filter-button {
+    float: right;
+    position: relative;
+    bottom: 1vh;
+  }
 }
