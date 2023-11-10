@@ -1,18 +1,22 @@
 import './header.scss';
-import { Menu } from '../menu/menu';
 
-export function Header() {
+type Props = {
+  children: JSX.Element;
+};
+export function Header({ children }: Props) {
   return (
     <header>
-      <img
-        className="container-header-img"
-        src="../../logoheader.png"
-        alt="Logo de header de elden ring"
-        width={280}
-        height={90}
-      />
-      <h1>Elden Ring</h1>
-      <Menu options={[]} />
+      <div className="logo">
+        <img
+          className="container-header-img"
+          src="../../logoheader.png"
+          alt="Logo de header de elden ring"
+          width={280}
+          height={90}
+        />
+        <h1>Elden Ring</h1>
+      </div>
+      {children}
     </header>
   );
 }

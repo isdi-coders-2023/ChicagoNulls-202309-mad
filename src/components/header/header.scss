@@ -1,3 +1,17 @@
+header {
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+header {
+  img {
+    position: relative;
+    left: 5vh;
+    top: 10px;
+  }
+}
+
 h1 {
   position: absolute;
   z-index: 0;
@@ -17,13 +31,5 @@ h1 {
       position: relative;
       left: 5vh;
     }
-  }
-}
-
-header {
-  img {
-    position: relative;
-    left: 5vh;
-    top: 10px;
   }
 }
