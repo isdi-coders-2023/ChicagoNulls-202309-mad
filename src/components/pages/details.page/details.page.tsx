@@ -12,7 +12,6 @@ export default function DetailsPage() {
     (item) => item.id === id
   ) as CharacterStructure;
 
-  console.log(findCharacter);
   return (
     <div className="card-container">
       <header className="card-title">

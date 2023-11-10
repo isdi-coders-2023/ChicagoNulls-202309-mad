@@ -11,8 +11,6 @@ export function CardList() {
     loadCharacters();
   }, [loadCharacters]);
 
-  console.log(characters);
-
   return (
     <ul>
       {characters ? (
