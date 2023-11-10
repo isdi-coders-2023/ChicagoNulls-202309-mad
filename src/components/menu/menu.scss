@@ -1,15 +1,18 @@
 nav {
   align-items: center;
   padding: 3rem;
+  padding: 2rem;
+  img {
+    height: 1.5rem;
+    width: auto;
+    cursor: pointer;
+    margin-right: 1rem;
+    display: none;
+  }
   ul {
     list-style: none;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 0%;
-    margin-bottom: 0%;
-    li {
+@@ -13,7 +20,6 @@ nav {
       display: block;
       padding: 0.2rem 0.5rem;
       box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.4);
@@ -17,8 +20,42 @@ nav {
       border-radius: 5px;
       a {
         text-decoration: none;
-        color: inherit;
-        font-size: 1rem;
+@@ -22,4 +28,39 @@ nav {
+      }
+    }
+  }
+  @media (max-width: 500px) {
+    display: block;
+  }
+}
+
+@media (max-width: 500px) {
+  nav {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
+    margin: 0% auto;
+
+    @media (max-width: 500px) {
+      img {
+        display: block;
+      }
+
+      ul {
+        display: none;
+
+        &.open {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          top: 60px;
+          left: 0;
+          width: 100%;
+          background: none;
+          box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+          padding: 1rem;
+        }
       }
     }
   }
