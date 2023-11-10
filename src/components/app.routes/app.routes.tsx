@@ -20,7 +20,7 @@ export function AppRoutes() {
           path="/custom-library"
           element={<CustomLibrary></CustomLibrary>}
         ></Route>
-        <Route path="*" element={<ErrorPage></ErrorPage>}></Route>
+        <Route path="/*" element={<ErrorPage></ErrorPage>}></Route>
         <Route path="/details" element={<DetailsPage></DetailsPage>}></Route>
       </Routes>
     </Suspense>
