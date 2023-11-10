@@ -8,16 +8,14 @@ const CustomLibrary = lazy(
 
 export function AppRoutes() {
   return (
-    <main>
-      <Suspense>
-        <Routes>
-          <Route path="/" element={<CharacterPage></CharacterPage>}></Route>
-          <Route
-            path="/custom-library"
-            element={<CustomLibrary></CustomLibrary>}
-          ></Route>
-        </Routes>
-      </Suspense>
-    </main>
+    <Suspense>
+      <Routes>
+        <Route path="/" element={<CharacterPage></CharacterPage>}></Route>
+        <Route
+          path="/custom-library"
+          element={<CustomLibrary></CustomLibrary>}
+        ></Route>
+      </Routes>
+    </Suspense>
   );
 }
