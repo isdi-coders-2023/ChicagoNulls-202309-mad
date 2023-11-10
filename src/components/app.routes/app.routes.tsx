@@ -12,8 +12,7 @@ const ErrorPage = lazy(() => import('../pages/error.page/error.page'));
 const DetailsPage = lazy(() => import('../pages/details.page/details.page'));
 export function AppRoutes() {
   return (
-    <main>
-      <Suspense>
+ <Suspense>
         <Routes>
           <Route path="/" element={<Home></Home>}></Route>
           <Route path="/home" element={<Home></Home>}></Route>
@@ -25,7 +24,6 @@ export function AppRoutes() {
           <Route path="/details" element={<DetailsPage></DetailsPage>}></Route>
         </Routes>
       </Suspense>
-    </main>
   );
 }
 
