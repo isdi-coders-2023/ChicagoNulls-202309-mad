@@ -1,24 +1,3 @@
-/* import { Link } from 'react-router-dom';
-import { MenuOption } from '../../models/menu.option.type';
-import './menu.scss';
- */
-/* type Props = {
-  options: MenuOption[];
-};
-export function Menu({ options }: Props) {
-  return (
-    <nav role="menu">
-      <img src="../bars.svg" alt="icono de menu plegable" />
-      <ul>
-        {options.map((item) => (
-          <li key={item.label}>
-              <Link to={item.path}>{item.label}</Link>   
-          </li>
-        ))}
-      </ul>
-    </nav>
-  );
-} */
 import { Link } from 'react-router-dom';
 import { MenuOption } from '../../models/menu.option.type';
 import './menu.scss';
@@ -37,7 +16,6 @@ export function Menu({ options }: Props) {
 
   return (
     <nav role="menu">
-      <ul>
       <img
         src="../bars.svg"
         alt="icono de menu plegable"
@@ -47,12 +25,12 @@ export function Menu({ options }: Props) {
       <ul className={`menu-list ${isMenuOpen ? 'open' : ''}`}>
         {options.map((item) => (
           <li key={item.label}>
-              <Link to={item.path}>{item.label}</Link>   
             <Link to={item.path} onClick={() => setIsMenuOpen(false)}>
               {item.label}
             </Link>
           </li>
         ))}
       </ul>
-     </nav>
-     );
+    </nav>
+  );
+}
