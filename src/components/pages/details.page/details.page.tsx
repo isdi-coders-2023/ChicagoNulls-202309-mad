@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import { AppContext } from '../../../context/context';
 import { useContext } from 'react';
 import { CharacterStructure } from '../../../models/eldenring.api';
+import './details.page.scss';
 
 export default function DetailsPage() {
   const { id } = useParams();
