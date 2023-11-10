@@ -7,6 +7,23 @@ h1 {
 
 @media (width < 480px) {
   .container-header-img {
-    width: 230px;
+    height: 50px;
+    width: 140px;
+    top: 10px;
+  }
+
+  header {
+    img {
+      position: relative;
+      left: 5vh;
+    }
+  }
+}
+
+header {
+  img {
+    position: relative;
+    left: 5vh;
+    top: 10px;
   }
 }
