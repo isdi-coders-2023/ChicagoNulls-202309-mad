@@ -21,7 +21,7 @@ jest.mock('../pages/character.page/character.page', () => {
   return {
     __esModule: true,
     default: () => {
-      return <div data-testid="mocked-home">Mocked Home Component</div>;
+      return <p data-testid="mocked-home">Mocked Home Component</p>;
     },
   };
 });
@@ -31,7 +31,7 @@ jest.mock('../pages/error.page/error.page', () => {
     __esModule: true,
     default: () => {
       return (
-        <div data-testid="mocked-error-page">Mocked Error Page Component</div>
+        <span data-testid="mocked-error-page">Mocked Error Page Component</span>
       );
     },
   };
@@ -42,9 +42,7 @@ jest.mock('../pages/details.page/details.page', () => {
     __esModule: true,
     default: () => {
       return (
-        <div data-testid="mocked-details-page">
-          Mocked Details Page Component
-        </div>
+        <h1 data-testid="mocked-details-page">Mocked Details Page Component</h1>
       );
     },
   };
