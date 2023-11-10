@@ -1,8 +1,8 @@
-img.bird {
-  background: none;
-}
-
 @media (width < 500px) {
+  button {
+    background: transparent;
+    border: 1px solid transparent;
+  }
   .image-birds-container {
     display: flex;
     justify-content: space-between;
@@ -20,12 +20,16 @@ img.bird {
 }
 
 @media (width > 500px) {
+  button {
+    background: transparent;
+    border: 1px solid transparent;
+  }
   .image-birds-container {
     display: flex;
     background: none;
     position: relative;
     justify-content: space-between;
-    bottom: 30vh;
+    bottom: 40vh;
     width: 100%;
   }
 
