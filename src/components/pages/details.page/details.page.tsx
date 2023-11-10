@@ -1,13 +1,18 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { AppContext } from '../../../context/context';
 import { useContext } from 'react';
+import { CharacterStructure } from '../../../models/eldenring.api';
 
 export default function DetailsPage() {
   const { id } = useParams();
-  const {
-    appState: { characters },
-  } = useContext(AppContext);
-  const findCharacter = characters.find((item) => String(item.id) === id);
+
+  const { characters } = useContext(AppContext);
+
+  const findCharacter: CharacterStructure = characters.find(
+    (item) => item.id === id
+  ) as CharacterStructure;
+
+  console.log(findCharacter);
   return (
     <div className="card-container">
       <header className="card-title">
@@ -16,35 +21,35 @@ export default function DetailsPage() {
       <div className="character-container">
         <section className="character-info">
           <p>
-            <strong>Name:</strong> {findCharacter!.name}
+            <strong>Name:</strong> {findCharacter.name}
           </p>
           <p>
-            <strong>Description:</strong> {findCharacter!.description}
+            <strong>Description:</strong> {findCharacter.description}
           </p>
           <p>
-            <strong>Level:</strong> {findCharacter!.stats.level}
+            <strong>Level:</strong> {findCharacter.stats.level}
           </p>
           <p>
-            <strong>Vigor:</strong> {findCharacter!.stats.vigor}
+            <strong>Vigor:</strong> {findCharacter.stats.vigor}
           </p>
           <p>
-            <strong>Mind:</strong> {findCharacter!.stats.mind}
+            <strong>Mind:</strong> {findCharacter.stats.mind}
           </p>
           <p>
-            <strong>Strength:</strong> {findCharacter!.stats.strength}
+            <strong>Strength:</strong> {findCharacter.stats.strength}
           </p>
         </section>
         <aside className="character-image">
           <img
-            src={findCharacter!.image}
-            alt={`${
-              findCharacter!.name
-            } image showing itself with game-themed clothes.`}
+            src={findCharacter.image}
+            alt={`${findCharacter.name} image showing itself with game-themed clothes.`}
           />
         </aside>
       </div>
       <footer>
-        <button>Go back</button>
+        <button>
+          <Link to="/">Go back</Link>
+        </button>
       </footer>
     </div>
   );

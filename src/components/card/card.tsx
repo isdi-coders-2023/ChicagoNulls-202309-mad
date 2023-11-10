@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { CharacterStructure } from '../../models/eldenring.api';
 import './card.scss';
 type Props = {
@@ -12,7 +13,9 @@ export function Card({ character }: Props) {
       <li className="Card">
         <img src={imageUrl + character.id + imageType} alt={character.name} />
       </li>
-      <button className="details">Show Details</button>
+      <button className="details">
+        <Link to={'/details/' + character.id}>Show Details</Link>
+      </button>
     </div>
   );
 }

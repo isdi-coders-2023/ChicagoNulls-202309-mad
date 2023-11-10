@@ -2,6 +2,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { CardList } from './card.list';
 import { AppContext, ContextStructure } from '../../context/context';
+import { MemoryRouter } from 'react-router-dom';
 
 const mockContext: ContextStructure = {
   characters: [{ name: 'Hero', id: 4 }],
@@ -12,9 +13,11 @@ describe('Given List component', () => {
   describe('When we instantiate', () => {
     beforeEach(() => {
       render(
-        <AppContext.Provider value={mockContext}>
-          <CardList></CardList>
-        </AppContext.Provider>
+        <MemoryRouter>
+          <AppContext.Provider value={mockContext}>
+            <CardList></CardList>
+          </AppContext.Provider>
+        </MemoryRouter>
       );
     });
     test('renders List with Card', () => {

@@ -21,7 +21,10 @@ export function AppRoutes() {
           element={<CustomLibrary></CustomLibrary>}
         ></Route>
         <Route path="/*" element={<ErrorPage></ErrorPage>}></Route>
-        <Route path="/details" element={<DetailsPage></DetailsPage>}></Route>
+        <Route
+          path="/details/:id/"
+          element={<DetailsPage></DetailsPage>}
+        ></Route>
       </Routes>
     </Suspense>
   );

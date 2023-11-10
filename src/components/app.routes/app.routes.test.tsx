@@ -90,7 +90,7 @@ describe('When we render', () => {
   test('the component should render Error Page', async () => {
     await act(async () => {
       render(
-        <Router initialEntries={['/details']}>
+        <Router initialEntries={['/details/:id/']}>
           <AppRoutes />
         </Router>
       );
