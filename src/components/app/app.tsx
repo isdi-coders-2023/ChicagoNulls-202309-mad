@@ -8,7 +8,7 @@ import { Menu } from '../menu/menu';
 export default function App() {
   const menuOptions: MenuOption[] = [
     { label: 'Characters', path: '/' },
-    { label: 'Create your avatar', path: '/custom.library' },
+    { label: 'Create your avatar', path: '/custom-library' },
   ];
 
   return (
@@ -16,7 +16,9 @@ export default function App() {
       <Header>
         <Menu options={menuOptions}></Menu>
       </Header>
-      <AppRoutes></AppRoutes>
+      <main>
+        <AppRoutes></AppRoutes>
+      </main>
       <Footer></Footer>
     </>
   );

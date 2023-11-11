@@ -1,9 +1,13 @@
 @media (width > 480px) {
-  .card-title,
-  footer {
+  .details-footer,
+  .card-title {
     border: 2px #8f7239 solid;
     border-left: none;
     border-right: none;
+  }
+
+  .card-title {
+    display: block;
     h2 {
       text-align: center;
     }

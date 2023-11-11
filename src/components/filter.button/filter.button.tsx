@@ -16,6 +16,7 @@ export function FilterButton() {
         <option value="">Todos</option>
         <option value="10">Fuerza superior a 10</option>
         <option value="9">Fuerza inferior a 10</option>
+
       </select>
     </div>
   );
