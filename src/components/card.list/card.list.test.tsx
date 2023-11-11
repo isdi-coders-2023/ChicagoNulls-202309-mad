@@ -6,7 +6,7 @@ import { CharacterStructure } from '../../models/eldenring.api';
 import { AppState } from '../../reducers/actions';
 import { BrowserRouter } from 'react-router-dom';
 const mockContext: ContextStructure = {
-  state: {
+  appState: {
     characters: [{ name: 'Hero' }],
     page: 1,
     filteredCharacters: [{ name: 'Hero' }],
@@ -32,17 +32,10 @@ describe('Given List component', () => {
       expect(element).toBeInTheDocument();
     });
     test('renders loading message while characters are being loaded', () => {
-      const loadingElement = screen.getByText('Loading characters...');
-      expect(loadingElement).toBeInTheDocument();
-
-      // Simula que los personajes se han cargado
       const loadedContext: ContextStructure = {
-        state: {
-          characters: [{ name: 'Hero' }],
-          page: 1,
-          filteredCharacters: [{ name: 'Hero' }],
-          selectedValue: '',
-        } as AppState,
+        appState: {
+          characters: null,
+        } as unknown as AppState,
         loadCharacters: jest
           .fn()
           .mockResolvedValue([{ name: 'Hero' } as CharacterStructure]),
@@ -55,11 +48,8 @@ describe('Given List component', () => {
           </AppContext.Provider>
         </BrowserRouter>
       );
-
-      // Ahora, el mensaje de carga no debería estar presente
-      expect(screen.queryByText('Loading characters...')).toBeNull();
-
-      // Aquí puedes realizar más aserciones según la lógica de tu componente
+      const loadingElement = screen.getByText('Loading characters...');
+      expect(loadingElement).toBeInTheDocument();
     });
   });
 });

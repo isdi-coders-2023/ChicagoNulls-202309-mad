@@ -6,7 +6,7 @@ import { CharacterStructure } from '../../models/eldenring.api.tsx';
 
 export function CardList() {
   const { appState, loadCharacters } = useContext(AppContext);
-
+  console.log(appState);
   useEffect(() => {
     loadCharacters();
   }, [loadCharacters]);
