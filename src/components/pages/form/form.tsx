@@ -16,7 +16,6 @@ export const Form = () => {
 
     description: '',
   });
-  console.log(Form);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -32,8 +31,6 @@ export const Form = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    console.log(values);
   };
 
   return (
