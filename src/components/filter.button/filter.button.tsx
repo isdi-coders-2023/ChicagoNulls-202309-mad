@@ -1,13 +1,22 @@
 import './filter.button.scss';
+import { AppContext } from '../../context/context';
+import { useContext } from 'react';
 
 export function FilterButton() {
+  const { handleFilter, appState } = useContext(AppContext);
+
   return (
     <div className="filter-button">
-      <label htmlFor="category">Pick an option: </label>
-      <select name="category" id="category">
-        <option value=""></option>
-        <option value="stronger">Strength equal or over 8</option>
-        <option value="weaker">Strength under 8</option>
+      <label htmlFor="filter">Choose a category: </label>
+      <select
+        onChange={handleFilter}
+        name="filter"
+        value={appState.selectedValue}
+      >
+        <option value="">Todos</option>
+        <option value="10">Fuerza superior a 10</option>
+        <option value="9">Fuerza inferior a 10</option>
+
       </select>
     </div>
   );

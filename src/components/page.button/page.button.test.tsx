@@ -2,7 +2,7 @@ import { screen, render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { PageButton } from './page.button';
 import { AppContext, ContextStructure } from '../../context/context';
-import { AppState } from '../../reducers/reducer';
+import { AppState } from '../../reducers/actions';
 
 const value: ContextStructure = {
   appState: { page: 0 } as unknown as AppState,

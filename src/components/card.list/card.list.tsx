@@ -5,18 +5,22 @@ import './card.list.scss';
 import { CharacterStructure } from '../../models/eldenring.api.tsx';
 
 export function CardList() {
-  const { characters, loadCharacters } = useContext(AppContext);
-
+  const { appState, loadCharacters } = useContext(AppContext);
+  console.log(appState);
   useEffect(() => {
     loadCharacters();
   }, [loadCharacters]);
 
+  let chars: CharacterStructure[] = [];
+  if (appState.selectedValue === '') {
+    chars = appState.characters;
+  } else {
+    chars = appState.filteredCharacters;
+  }
   return (
     <ul>
-      {characters ? (
-        characters.map((item: CharacterStructure) => (
-          <Card key={item.id} character={item}></Card>
-        ))
+      {chars ? (
+        chars.map((item) => <Card key={item.id} character={item}></Card>)
       ) : (
         <p>Loading characters...</p>
       )}

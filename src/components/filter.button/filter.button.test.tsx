@@ -1,14 +1,21 @@
-import { screen, render } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { screen, render } from '@testing-library/react';
 import { FilterButton } from './filter.button';
+import { BrowserRouter } from 'react-router-dom';
+import { AppContextProvider } from '../../context/context.provider';
 
-describe('Given FilterButton component', () => {
+describe('Given Filter component', () => {
   describe('When we instantiate', () => {
     beforeEach(() => {
-      render(<FilterButton></FilterButton>);
+      render(
+        <BrowserRouter>
+          <AppContextProvider>
+            <FilterButton></FilterButton>
+          </AppContextProvider>
+        </BrowserRouter>
+      );
     });
-
-    test('Then it should be the role', () => {
+    test('It should be in the document', () => {
       const element = screen.getByRole('combobox');
       expect(element).toBeInTheDocument();
     });

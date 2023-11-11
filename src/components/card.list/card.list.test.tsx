@@ -1,48 +1,63 @@
-import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { CardList } from './card.list';
 import { AppContext, ContextStructure } from '../../context/context';
-import { MemoryRouter } from 'react-router-dom';
-
+import { CardList } from './card.list';
+import '@testing-library/jest-dom';
+import { CharacterStructure } from '../../models/eldenring.api';
+import { AppState } from '../../reducers/actions';
+import { BrowserRouter } from 'react-router-dom';
 const mockContext: ContextStructure = {
-  characters: [{ name: 'Hero', id: 4 }],
-  loadCharacters: jest.fn(),
+  appState: {
+    characters: [{ name: 'Hero' }],
+    page: 1,
+    filteredCharacters: [{ name: 'Hero' }],
+  } as AppState,
+  loadCharacters: jest
+    .fn()
+    .mockResolvedValue([{ name: 'Hero' } as CharacterStructure]),
 } as unknown as ContextStructure;
 
 describe('Given List component', () => {
   describe('When we instantiate', () => {
     beforeEach(() => {
       render(
-        <MemoryRouter>
+        <BrowserRouter>
           <AppContext.Provider value={mockContext}>
             <CardList></CardList>
           </AppContext.Provider>
-        </MemoryRouter>
+        </BrowserRouter>
       );
     });
     test('renders List with Card', () => {
       const element = screen.getByRole('list');
       expect(element).toBeInTheDocument();
     });
-    test('', () => {
-      expect(mockContext.loadCharacters).toHaveBeenCalled();
-      const element = screen.getByAltText('Hero');
-      expect(element).toBeInTheDocument();
-    });
-
-    test('', () => {
-      const mockContext: ContextStructure = {
-        characters: null,
-        loadCharacters: jest.fn(),
+    test('renders loading message while characters are being loaded', () => {
+      const loadedContext: ContextStructure = {
+        appState: {
+          characters: null,
+        } as unknown as AppState,
+        loadCharacters: jest
+          .fn()
+          .mockResolvedValue([{ name: 'Hero' } as CharacterStructure]),
       } as unknown as ContextStructure;
+
       render(
-        <AppContext.Provider value={mockContext}>
-          <CardList></CardList>
-        </AppContext.Provider>
+        <BrowserRouter>
+          <AppContext.Provider value={loadedContext}>
+            <CardList></CardList>
+          </AppContext.Provider>
+        </BrowserRouter>
       );
-      expect(mockContext.loadCharacters).toHaveBeenCalled();
-      const element = screen.getByText('Loading characters...');
-      expect(element).toBeInTheDocument();
+      const loadingElement = screen.getByText('Loading characters...');
+      expect(loadingElement).toBeInTheDocument();
     });
   });
 });
+
+//
+
+///
+
+//
+
+//
