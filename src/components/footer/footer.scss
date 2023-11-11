@@ -4,11 +4,4 @@ footer {
   align-items: center;
   width: 100%;
   gap: 0.5rem;
-  position: relative;
-}
-
-@media (width > 480px) {
-  footer {
-    top: -10vh;
-  }
 }
