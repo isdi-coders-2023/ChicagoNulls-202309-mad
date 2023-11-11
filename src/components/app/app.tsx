@@ -16,7 +16,9 @@ export default function App() {
       <Header>
         <Menu options={menuOptions}></Menu>
       </Header>
-      <AppRoutes></AppRoutes>
+      <main>
+        <AppRoutes></AppRoutes>
+      </main>
       <Footer></Footer>
     </>
   );
