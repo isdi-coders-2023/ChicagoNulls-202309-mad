@@ -2,7 +2,7 @@ import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 const CustomLibrary = lazy(
-  () => import('../../components/pages/custom.library/custom.library')
+  () => import('../pages/custom.library/custom.library.page')
 );
 
 const Home = lazy(() => import('../pages/character.page/character.page'));
@@ -10,6 +10,7 @@ const Home = lazy(() => import('../pages/character.page/character.page'));
 const ErrorPage = lazy(() => import('../pages/error.page/error.page'));
 
 const DetailsPage = lazy(() => import('../pages/details.page/details.page'));
+
 const Form = lazy(() => import('../pages/form/form'));
 export function AppRoutes() {
   return (
