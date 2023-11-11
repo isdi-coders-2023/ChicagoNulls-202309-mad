@@ -16,12 +16,4 @@ export class ApiRepo {
     const fullData = (await response.json()) as ApiResponse;
     return fullData.data;
   }
-
-  // async getBosses(): Promise<CharacterStructure[]> {
-  //   const response2 = await fetch(this.apiUrlBosses);
-  //   if (!response2.ok) {
-  //     throw new Error(response2.status + ' ' + response2.statusText);
-  //   }
-  //   return response2.json();
-  // }
 }

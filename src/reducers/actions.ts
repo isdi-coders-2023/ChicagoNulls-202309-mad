@@ -8,7 +8,7 @@ export type State = {
 };
 
 type ActionCharactersAll = {
-  type: 'load' /* | ' default' */;
+  type: 'load';
   payload: CharacterStructure[];
 };
 
