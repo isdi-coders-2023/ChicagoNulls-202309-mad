@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import {} from './form.style.scss';
 export const Form = () => {
   const [values, setValues] = useState({
     name: '',
@@ -16,7 +16,7 @@ export const Form = () => {
 
     description: '',
   });
-  console.log(Form());
+  console.log(Form);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
