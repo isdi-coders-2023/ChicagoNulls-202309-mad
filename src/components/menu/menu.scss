@@ -1,6 +1,8 @@
 nav {
   align-items: center;
   padding: 2rem;
+  z-index: 4; /* Asegúrate de que sea mayor que el z-index de otros elementos */
+  position: relative;
   img {
     height: 1.5rem;
     width: auto;
@@ -35,6 +37,8 @@ nav {
 
 @media (max-width: 500px) {
   nav {
+    z-index: 4; /* Asegúrate de que sea mayor que el z-index de otros elementos */
+    position: relative;
     display: block;
     justify-content: center;
     align-items: center;
@@ -53,7 +57,7 @@ nav {
           display: flex;
           flex-direction: column;
           position: absolute;
-          top: 60px;
+          top: 40px;
           left: 0;
           width: 100%;
           background: none;

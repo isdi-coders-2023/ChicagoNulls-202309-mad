@@ -3,10 +3,11 @@ import './filter.button.scss';
 export function FilterButton() {
   return (
     <div className="filter-button">
-      <label htmlFor="category">Choose a category: </label>
+      <label htmlFor="category">Pick an option: </label>
       <select name="category" id="category">
-        <option value="characters">Characters</option>
-        <option value="bosses">Bosses</option>
+        <option value=""></option>
+        <option value="stronger">Strength equal or over 8</option>
+        <option value="weaker">Strength under 8</option>
       </select>
     </div>
   );
