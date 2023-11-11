@@ -42,6 +42,11 @@ jest.mock('../pages/error.page/error.page', () => {
   );
 });
 
+jest.mock('../pages/form/form.tsx', () => {
+  return mockComponent(
+    <span data-testid="mocked-form">Mocked Form Component</span>
+  );
+});
 jest.mock('../pages/details.page/details.page', () => {
   return mockComponent(
     <h1 data-testid="mocked-details-page">Mocked Details Page Component</h1>
@@ -72,4 +77,10 @@ describe('When we render', () => {
     const element = screen.getByTestId('mocked-details-page');
     expect(element).toBeInTheDocument();
   });
+});
+
+test('the component should render Form', async () => {
+  await renderComponent('/form');
+  const element = screen.getByTestId('mocked-form');
+  expect(element).toBeInTheDocument();
 });
