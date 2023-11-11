@@ -1,11 +1,4 @@
-import { CharacterStructure } from '../models/eldenring.api';
-import { ActionCharacters } from './actions';
-
-export type AppState = {
-  characters: CharacterStructure[];
-  // filter: string;
-  page: number;
-};
+import { ActionCharacters, AppState } from './actions';
 
 export function charactersReducer(
   state: AppState,
@@ -16,7 +9,28 @@ export function charactersReducer(
       return { ...state, characters: payload };
 
     case 'page':
-      return { characters: state.characters, page: payload };
+      return {
+        characters: state.characters,
+        page: payload,
+        filteredCharacters: state.filteredCharacters,
+        selectedValue: state.selectedValue,
+      };
+
+    case 'filter':
+      return {
+        characters: state.characters,
+        page: state.page,
+        filteredCharacters: payload,
+        selectedValue: state.selectedValue,
+      };
+
+    case 'select':
+      return {
+        characters: state.characters,
+        page: state.page,
+        filteredCharacters: state.filteredCharacters,
+        selectedValue: payload,
+      };
 
     default:
       return { ...state };

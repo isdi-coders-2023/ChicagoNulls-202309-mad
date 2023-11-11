@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
-import { AppState, charactersReducer } from './reducer';
-import { ActionCharacters, loadActionCreator } from './actions';
+import { charactersReducer } from './reducer';
+import { AppState, ActionCharacters, loadActionCreator } from './actions';
 import { CharacterStructure } from '../models/eldenring.api';
 
 describe('charactersReducer', () => {
@@ -9,7 +9,8 @@ describe('charactersReducer', () => {
     const initialState: AppState = {
       characters: [],
       page: 0,
-      // filter: '',
+      filteredCharacters: [],
+      selectedValue: '',
     };
 
     const charactersData: CharacterStructure[] = [
