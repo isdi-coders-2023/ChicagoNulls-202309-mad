@@ -23,4 +23,3 @@ export function CardPrivate({ character }: Props) {
     </div>
   );
 }
-//
