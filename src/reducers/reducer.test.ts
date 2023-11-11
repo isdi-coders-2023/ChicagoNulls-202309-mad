@@ -1,14 +1,8 @@
 import { charactersReducer } from './reducer';
 
-<<<<<<< HEAD
 describe('Auth Reducer', () => {
   test('should return load correclty ', () => {
     const mockPayload = {
-=======
-describe('charactersReducer', () => {
-  it('Given an initial state and a "load" action, When reducing the state, Then the characters should be updated', () => {
-    const initialState: AppState = {
->>>>>>> 9b187af501595862ceb953f1cd71798d0d50b01f
       characters: [],
       page: 1,
       filteredCharacters: [],
