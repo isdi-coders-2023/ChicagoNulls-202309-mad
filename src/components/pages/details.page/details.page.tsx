@@ -46,7 +46,7 @@ export default function DetailsPage() {
           />
         </aside>
       </div>
-      <footer>
+      <footer className="details-footer">
         <button>
           <Link to="/">Go back</Link>
         </button>
