@@ -22,10 +22,7 @@ export function Menu({ options }: Props) {
         className="burger-icon"
         onClick={toggleMenu}
       />
-      <ul
-        className={`menu-list ${isMenuOpen ? 'open' : ''}`}
-        // style={{ backgroundColor: 'darkgreen' }}
-      >
+      <ul className={`menu-list ${isMenuOpen ? 'open' : ''}`}>
         {options.map((item) => (
           <li key={item.label}>
             <Link to={item.path} onClick={() => setIsMenuOpen(false)}>

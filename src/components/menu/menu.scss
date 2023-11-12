@@ -45,7 +45,7 @@ nav {
 
 @media (max-width: 500px) {
   nav {
-    z-index: 4; /* Asegúrate de que sea mayor que el z-index de otros elementos */
+    z-index: 4;
     position: relative;
     display: block;
     justify-content: center;
