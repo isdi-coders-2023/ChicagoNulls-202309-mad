@@ -24,7 +24,7 @@ const mockComponent = (content: React.ReactNode) => {
   };
 };
 
-jest.mock('../../components/pages/custom.library/custom.library', () => {
+jest.mock('../pages/custom.library/custom.library.page', () => {
   return mockComponent(
     <div data-testid="mocked-custom-library">
       Mocked Custom Library Component

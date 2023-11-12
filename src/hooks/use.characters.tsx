@@ -1,7 +1,6 @@
 import { SyntheticEvent, useCallback, useMemo, useReducer } from 'react';
 import { ApiRepo } from '../services/api.repo';
 import { charactersReducer } from '../reducers/reducer';
-import {} from '../reducers/actions';
 import {
   AppState,
   changePage,

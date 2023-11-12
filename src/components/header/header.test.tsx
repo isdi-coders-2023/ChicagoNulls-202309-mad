@@ -3,6 +3,7 @@ import '@testing-library/jest-dom';
 import { Header } from './header';
 import { Menu } from '../menu/menu';
 import { MenuOption } from '../../models/menu.option.type';
+import { BrowserRouter } from 'react-router-dom';
 
 jest.mock('../menu/menu');
 
@@ -14,9 +15,11 @@ describe('Given Header component', () => {
     ];
     beforeEach(() => {
       render(
-        <Header>
-          <Menu options={menuOptions}></Menu>
-        </Header>
+        <BrowserRouter>
+          <Header>
+            <Menu options={menuOptions}></Menu>
+          </Header>
+        </BrowserRouter>
       );
     });
 

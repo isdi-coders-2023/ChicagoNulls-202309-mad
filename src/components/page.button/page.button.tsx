@@ -12,6 +12,8 @@ export function PageButton() {
           <img
             src="../../arrow-bird.png"
             alt="imagenes de pajaros de paginado"
+            height={123}
+            width={125}
           />
         </button>
       </div>
@@ -20,6 +22,8 @@ export function PageButton() {
           <img
             src="../../arrow-bird.png"
             alt="imagenes de pajaros de paginado"
+            height={123}
+            width={125}
           />
         </button>
       </div>

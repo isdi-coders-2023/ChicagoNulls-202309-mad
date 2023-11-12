@@ -43,12 +43,16 @@ export default function DetailsPage() {
           <img
             src={findCharacter.image}
             alt={`${findCharacter.name} image showing itself with game-themed clothes.`}
+            height={400}
+            width={300}
           />
         </aside>
       </div>
       <footer className="details-footer">
         <button>
-          <Link to="/">Go back</Link>
+          <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+            Go back
+          </Link>
         </button>
       </footer>
     </div>

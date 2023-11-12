@@ -2,7 +2,7 @@ import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 const CustomLibrary = lazy(
-  () => import('../../components/pages/custom.library/custom.library')
+  () => import('../pages/custom.library/custom.library.page')
 );
 
 const Home = lazy(() => import('../pages/character.page/character.page'));
@@ -32,5 +32,3 @@ export function AppRoutes() {
     </Suspense>
   );
 }
-
-//
