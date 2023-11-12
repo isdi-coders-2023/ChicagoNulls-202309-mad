@@ -7,10 +7,11 @@ export function FilterButton() {
 
   return (
     <div className="filter-button">
-      <label htmlFor="filter">Choose a category: </label>
+      <label htmlFor="filter">Filter by: </label>
       <select
         onChange={handleFilter}
         name="filter"
+        id="filter"
         value={appState.selectedValue}
       >
         <option value="">All</option>
