@@ -1,47 +1,34 @@
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { userEvent } from '@testing-library/user-event';
+import Form from './form';
 
-import { render, screen, act } from '@testing-library/react';
-
-import userEvent from '@testing-library/user-event';
-
-import { Form } from './form';
-
-describe('Given FormCharacter component', () => {
+describe('Given CharacterForm Component', () => {
   describe('When we instantiate', () => {
+    let nameInput: HTMLInputElement;
+    let submitButton: HTMLButtonElement;
+    const handleSubmit = jest.fn();
+
     beforeEach(() => {
       render(<Form />);
+      const nameInputs = screen.getAllByLabelText(
+        'Vigor:'
+      ) as HTMLInputElement[];
+      nameInput = nameInputs[0];
+      submitButton = screen.getByText('Submit');
     });
 
-    test('handles form submission correctly', async () => {
-      const nameInput = screen.getByPlaceholderText(
-        'Ingresa el nombre'
-      ) as HTMLInputElement;
+    test('It should render input', () => {
+      const element = screen.getAllByRole('combobox')[0];
+      expect(element).toBeInTheDocument();
+    });
 
-      const submitButton = screen.getByText('Submit');
-
-      await act(async () => {
-        userEvent.type(nameInput, 'John');
-      });
-
-      await act(async () => {
-        userEvent.click(submitButton);
-      });
-
-      // await waitFor(() => {
-      //   expect(console.log).toHaveBeenCalled({
-      //           name: 'John',
-
-      //           level: '',
-
-      //           mind: '',
-
-      //           vigor: '',
-
-      //           strength: '',
-
-      //           classType: 'Human',
-      //         });
-      //       });
+    test('It should call handleSubmit when the submit button is clicked', async () => {
+      await userEvent.type(nameInput, '');
+      expect(nameInput).toHaveValue('');
+      expect(submitButton).toBeInTheDocument();
+      await userEvent.click(submitButton);
+      expect(handleSubmit).toHaveBeenCalled();
     });
   });
 });

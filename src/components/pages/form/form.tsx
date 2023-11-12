@@ -1,93 +1,115 @@
-import React, { useState } from 'react';
+import { useState, SyntheticEvent } from 'react';
 import {} from './form.style.scss';
-export const Form = () => {
+export default function Form() {
   const [values, setValues] = useState({
     name: '',
-
     level: '',
-
     mind: '',
-
     vigor: '',
-
     strength: '',
-
     classType: 'Human',
-
     description: '',
   });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target;
-
-    setValues((prevValues) => ({
-      ...prevValues,
-
-      [name]: value,
-    }));
+  const handleChange = (ev: SyntheticEvent) => {
+    const control = ev.target as HTMLInputElement;
+    const value = control.type === 'checkbox' ? control.checked : control.value;
+    const name = control.name;
+    setValues({ ...values, [name]: value });
   };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = (event: SyntheticEvent) => {
+    event.preventDefault();
+    console.log(values);
   };
-
   return (
-    <div>
+    <div className="form-container">
       <form onSubmit={handleSubmit} role="form">
         <h1>Form Api</h1>
 
-        <input
-          type="text"
-          name="name"
-          placeholder="Ingresa el nombre"
-          value={values.name}
-          onChange={handleChange}
-        />
+        <div className="form-group">
+          <div className="name-container">
+            <label htmlFor="name">Name:</label>
+            <input
+              type="text"
+              name="name"
+              value={values.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        </div>
 
-        <input
-          type="text"
-          name="description"
-          placeholder="Ingresa la descripción"
-          value={values.description}
-          onChange={handleChange}
-        />
+        <div className="description-container larger-input">
+          <div className="form-description">
+            <div className="description-text">
+              <label htmlFor="description">Description:</label>
+            </div>
+            <input
+              type="text"
+              name="description"
+              value={values.description}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        </div>
+        <div className="options-container">
+          <div className="level-container">
+            <div className="level-form">
+              <label htmlFor="level">Level:</label>
+              <input
+                type="text"
+                name="level"
+                value={values.level}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
+          <div className="mind-container">
+            <div className="mind-form">
+              <label htmlFor="mind">Mind:</label>
+              <input
+                type="text"
+                name="mind"
+                value={values.mind}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
+          <div className="strength-container">
+            <div className="strength-form">
+              <label htmlFor="strength">Strength:</label>
+              <input
+                type="text"
+                name="strength"
+                value={values.strength}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
+          <div className="vigor-container">
+            <div className="vigor-form">
+              <label htmlFor="vigor">Vigor:</label>
+              <input
+                type="text"
+                name="vigor"
+                value={values.vigor}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
+        </div>
 
-        <input
-          type="text"
-          name="level"
-          placeholder="Ingresa el nivel"
-          value={values.level}
-          onChange={handleChange}
-        />
-
-        <input
-          type="text"
-          name="mind"
-          placeholder="Ingresa el mind"
-          value={values.mind}
-          onChange={handleChange}
-        />
-
-        <input
-          type="text"
-          name="vigor"
-          placeholder="Ingresa el vigor"
-          value={values.vigor}
-          onChange={handleChange}
-        />
-
-        <input
-          type="text"
-          name="strength"
-          placeholder="Ingresa el valor de Strength"
-          value={values.strength}
-          onChange={handleChange}
-        />
-        <button type="submit">Submit</button>
+        <div className="button-form">
+          <button className="button-container" type="submit">
+            Submit
+          </button>
+        </div>
       </form>
     </div>
   );
-};
-export default Form;
+}
