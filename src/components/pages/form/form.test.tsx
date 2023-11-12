@@ -26,22 +26,6 @@ describe('Given FormCharacter component', () => {
       await act(async () => {
         userEvent.click(submitButton);
       });
-
-      // await waitFor(() => {
-      //   expect(console.log).toHaveBeenCalled({
-      //           name: 'John',
-
-      //           level: '',
-
-      //           mind: '',
-
-      //           vigor: '',
-
-      //           strength: '',
-
-      //           classType: 'Human',
-      //         });
-      //       });
     });
   });
 });
