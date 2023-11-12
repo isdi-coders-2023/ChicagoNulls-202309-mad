@@ -36,7 +36,7 @@ export const Form = () => {
   return (
     <div>
       <form onSubmit={handleSubmit} role="form">
-        <h1>Form Api</h1>
+        <h2>Form Api</h2>
 
         <input
           type="text"
