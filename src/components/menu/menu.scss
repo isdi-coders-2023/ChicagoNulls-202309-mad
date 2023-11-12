@@ -1,7 +1,7 @@
 nav {
   align-items: center;
   padding: 2rem;
-  z-index: 4; /* Asegúrate de que sea mayor que el z-index de otros elementos */
+  z-index: 4;
   position: relative;
   img {
     height: 1.5rem;
@@ -24,7 +24,7 @@ nav {
       a {
         text-decoration: none;
         color: inherit;
-        font-size: 1rem;
+        font-size: 1.2rem;
       }
     }
   }
@@ -34,12 +34,17 @@ nav {
 }
 
 @media (width < 480px) {
-  .menu-list.open {
-    background-color: rgb(0, 98, 2);
-  }
   .menu-list {
     border: 1px solid transparent;
-    border-radius: 15px;
+    border-top: 1.5px solid black;
+    border-bottom: 1.5px solid black;
+    border-radius: 7px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+  }
+
+  .menu-list.open {
+    background-color: rgb(141, 136, 136);
   }
 }
 

@@ -13,10 +13,9 @@ export function FilterButton() {
         name="filter"
         value={appState.selectedValue}
       >
-        <option value="">Todos</option>
-        <option value="10">Fuerza superior a 10</option>
-        <option value="9">Fuerza inferior a 10</option>
-
+        <option value="">All</option>
+        <option value="10">Strength over 10</option>
+        <option value="9">Strength under 10</option>
       </select>
     </div>
   );
