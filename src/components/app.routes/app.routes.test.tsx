@@ -42,7 +42,7 @@ jest.mock('../pages/error.page/error.page', () => {
   );
 });
 
-jest.mock('../pages/form/form.tsx', () => {
+jest.mock('../pages/form.page/form.tsx', () => {
   return mockComponent(
     <span data-testid="mocked-form">Mocked Form Component</span>
   );
