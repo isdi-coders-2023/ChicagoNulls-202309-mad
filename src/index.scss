@@ -11,6 +11,7 @@ body {
   margin: 0;
   -webkit-box-shadow: inset -2px 4px 50px 50px rgba(0, 0, 0, 0.57);
   box-shadow: inset -2px 4px 50px 50px rgba(0, 0, 0, 0.57);
+  cursor: url('../cursor.png'), auto;
 }
 @media (width > 480px) {
   main {

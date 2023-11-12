@@ -25,6 +25,10 @@
     }
   }
 
+  .details {
+    font-size: 1.3rem;
+  }
+
   button {
     padding: 20px;
     margin: 0 auto;
@@ -36,7 +40,7 @@
     font-family: 'MedievalSharp', Arial, Helvetica, sans-serif;
     border: none;
     border-radius: 4px;
-    cursor: pointer;
+    cursor: url('../cursor.png'), pointer;
     margin-top: 10px;
   }
 }
