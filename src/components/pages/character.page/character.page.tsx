@@ -8,8 +8,9 @@ export default function CharacterPage() {
     <Characters>
       <>
         <FilterButton></FilterButton>
-        <CardList></CardList>
-        <PageButton></PageButton>
+
+        <CardList data-testid="card-list"></CardList>
+        <PageButton data-testid="page-button"></PageButton>
       </>
     </Characters>
   );

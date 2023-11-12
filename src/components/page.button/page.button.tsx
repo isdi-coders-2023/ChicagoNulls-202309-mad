@@ -8,7 +8,7 @@ export function PageButton() {
   return (
     <div className="image-birds-container">
       <div className="image-birds-pagination-next">
-        <button onClick={handlePrevious} disabled={appState.page === 0}>
+        <button onClick={handlePrevious} disabled={appState?.page === 0}>
           <img
             src="../../arrow-bird.png"
             alt="imagenes de pajaros de paginado"
@@ -16,7 +16,7 @@ export function PageButton() {
         </button>
       </div>
       <div className="image-birds-pagination-previous">
-        <button onClick={handleNext} disabled={appState.page === 4}>
+        <button onClick={handleNext} disabled={appState?.page === 4}>
           <img
             src="../../arrow-bird.png"
             alt="imagenes de pajaros de paginado"

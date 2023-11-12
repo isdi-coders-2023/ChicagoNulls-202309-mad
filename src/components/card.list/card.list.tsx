@@ -8,15 +8,19 @@ export function CardList() {
   const { appState, loadCharacters } = useContext(AppContext);
   console.log(appState);
   useEffect(() => {
-    loadCharacters();
+    const fetchData = async () => {
+      await loadCharacters();
+    };
+    fetchData();
   }, [loadCharacters]);
 
   let chars: CharacterStructure[] = [];
-  if (appState.selectedValue === '') {
+  if (appState && appState.selectedValue === '') {
     chars = appState.characters;
-  } else {
+  } else if (appState && appState.filteredCharacters) {
     chars = appState.filteredCharacters;
   }
+
   return (
     <ul>
       {chars ? (
