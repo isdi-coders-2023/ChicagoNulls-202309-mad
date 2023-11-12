@@ -3,7 +3,7 @@ type Props = {
 };
 export function CustomLibrary({ children }: Props) {
   return (
-    <div className="character" role="main">
+    <div className="character" data-testid="mocked-custom-library">
       {children}
     </div>
   );
