@@ -1,6 +1,6 @@
 # Week 5 - Proyecto en equipo
 
-Formado por: Sergi - Carlos - Ivana - Alejandro
+Formado por: Sergi - Carlos - Ivan Speziale - Alejandro
 
 Tenéis que crear una SPA con varias 'páginas' en React, gestionando el estado común con context + reducer (useReducer). Usaremos scss + css-module y la app debe ser responsive (mobile + desktop) / mobile first.
 
