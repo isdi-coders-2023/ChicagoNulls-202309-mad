@@ -11,7 +11,7 @@ const ErrorPage = lazy(() => import('../pages/error.page/error.page'));
 
 const DetailsPage = lazy(() => import('../pages/details.page/details.page'));
 
-const Form = lazy(() => import('../pages/form/form'));
+const Form = lazy(() => import('../pages/form.page/form'));
 export function AppRoutes() {
   return (
     <Suspense>
