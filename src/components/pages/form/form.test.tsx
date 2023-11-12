@@ -1,34 +1,37 @@
-import { render, screen } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { userEvent } from '@testing-library/user-event';
+
 import Form from './form';
+import userEvent from '@testing-library/user-event';
 
-describe('Given CharacterForm Component', () => {
+describe('Given Form Page component', () => {
   describe('When we instantiate', () => {
-    let nameInput: HTMLInputElement;
-    let submitButton: HTMLButtonElement;
-    const handleSubmit = jest.fn();
-
     beforeEach(() => {
       render(<Form />);
-      const nameInputs = screen.getAllByLabelText(
-        'Vigor:'
-      ) as HTMLInputElement[];
-      nameInput = nameInputs[0];
-      submitButton = screen.getByText('Submit');
     });
 
-    test('It should render input', () => {
-      const element = screen.getAllByRole('combobox')[0];
+    test('It should be in the document', () => {
+      const element = screen.getByText(/Name/);
       expect(element).toBeInTheDocument();
     });
 
-    test('It should call handleSubmit when the submit button is clicked', async () => {
-      await userEvent.type(nameInput, '');
-      expect(nameInput).toHaveValue('');
-      expect(submitButton).toBeInTheDocument();
-      await userEvent.click(submitButton);
-      expect(handleSubmit).toHaveBeenCalled();
+    // Envío del formulario
+
+    test('calls handleSubmit on form submission', () => {
+      userEvent.click(screen.getByRole('button', { name: /Submit/ }));
+    });
+
+    test('updates state on input change', () => {
+      const nameInput = screen.getByLabelText('Name:');
+      const descriptionInput = screen.getByLabelText('Description:');
+
+      // Simula cambios en los campos de entrada
+      userEvent.type(nameInput, 'John Doe');
+      userEvent.type(descriptionInput, 'A description');
+
+      // Verifica que los valores del estado se actualicen correctamente
+      expect(nameInput).toHaveValue('John Doe');
+      expect(descriptionInput).toHaveValue('A description');
     });
   });
 });

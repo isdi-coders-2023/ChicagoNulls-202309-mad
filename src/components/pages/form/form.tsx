@@ -32,6 +32,7 @@ export default function Form() {
             <input
               type="text"
               name="name"
+              id="name"
               value={values.name}
               onChange={handleChange}
               required
@@ -47,6 +48,7 @@ export default function Form() {
             <input
               type="text"
               name="description"
+              id="description"
               value={values.description}
               onChange={handleChange}
               required
