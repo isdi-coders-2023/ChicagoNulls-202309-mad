@@ -9,7 +9,6 @@ describe('Given Form Page component', () => {
     beforeEach(() => {
       render(<Form />);
     });
-
     test('It should be in the document', () => {
       const element = screen.getByText(/Name/);
       expect(element).toBeInTheDocument();
@@ -32,6 +31,7 @@ describe('Given Form Page component', () => {
       // Verifica que los valores del estado se actualicen correctamente
       expect(nameInput).toHaveValue('John Doe');
       expect(descriptionInput).toHaveValue('A description');
+
     });
   });
 });

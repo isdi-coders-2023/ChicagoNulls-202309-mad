@@ -3,6 +3,7 @@
   position: relative;
   bottom: 7vh;
   right: 5vh;
+  font-size: 1.2rem;
 }
 
 select {
@@ -12,7 +13,8 @@ select {
   color: #ffc34f;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
   font-family: 'MedievalSharp';
-  z-index: 2;
+  font-size: 1.2rem;
+  z-index: 0;
 }
 
 option:checked,

@@ -11,10 +11,20 @@ export function Card({ character }: Props) {
   return (
     <div className="card-container">
       <li className="Card">
-        <img src={imageUrl + character.id + imageType} alt={character.name} />
+        <img
+          src={imageUrl + character.id + imageType}
+          alt={character.name}
+          height={400}
+          width={300}
+        />
       </li>
       <button className="details">
-        <Link to={'/details/' + character.id}>Show Details</Link>
+        <Link
+          to={'/details/' + character.id}
+          style={{ textDecoration: 'none', color: 'inherit' }}
+        >
+          Show Details
+        </Link>
       </button>
     </div>
   );

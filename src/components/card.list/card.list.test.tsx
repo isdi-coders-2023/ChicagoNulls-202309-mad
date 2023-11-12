@@ -5,6 +5,7 @@ import '@testing-library/jest-dom';
 import { CharacterStructure } from '../../models/eldenring.api';
 import { AppState } from '../../reducers/actions';
 import { BrowserRouter } from 'react-router-dom';
+
 const mockContext: ContextStructure = {
   appState: {
     characters: [{ name: 'Hero' }],
@@ -18,7 +19,7 @@ const mockContext: ContextStructure = {
 
 describe('Given List component', () => {
   describe('When we instantiate', () => {
-    beforeEach(() => {
+    test('renders List with Card', () => {
       render(
         <BrowserRouter>
           <AppContext.Provider value={mockContext}>
@@ -26,11 +27,10 @@ describe('Given List component', () => {
           </AppContext.Provider>
         </BrowserRouter>
       );
-    });
-    test('renders List with Card', () => {
       const element = screen.getByRole('list');
       expect(element).toBeInTheDocument();
     });
+
     test('renders loading message while characters are being loaded', () => {
       const loadedContext: ContextStructure = {
         appState: {
@@ -51,13 +51,29 @@ describe('Given List component', () => {
       const loadingElement = screen.getByText('Loading characters...');
       expect(loadingElement).toBeInTheDocument();
     });
+
+    test('renders List with Card when selectedValue is empty', () => {
+      const emptySelectedValueContext: ContextStructure = {
+        appState: {
+          characters: [{ name: 'Hero' }],
+          page: 1,
+          filteredCharacters: [{ name: 'Hero' }],
+          selectedValue: '',
+        } as AppState,
+        loadCharacters: jest
+          .fn()
+          .mockResolvedValue([{ name: 'Hero' } as CharacterStructure]),
+      } as unknown as ContextStructure;
+
+      render(
+        <BrowserRouter>
+          <AppContext.Provider value={emptySelectedValueContext}>
+            <CardList></CardList>
+          </AppContext.Provider>
+        </BrowserRouter>
+      );
+      const element = screen.getByRole('list');
+      expect(element).toBeInTheDocument();
+    });
   });
 });
-
-//
-
-///
-
-//
-
-//

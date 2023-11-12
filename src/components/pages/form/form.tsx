@@ -24,7 +24,7 @@ export default function Form() {
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit} role="form">
-        <h1>Form Api</h1>
+        <h2>Form Api</h2>
 
         <div className="form-group">
           <div className="name-container">

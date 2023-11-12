@@ -17,3 +17,51 @@ export class ApiRepo {
     return fullData.data;
   }
 }
+
+export class PrivateApi {
+  privateApiUrl = 'http://localhost:3000/CustomCharacters';
+
+  async getCustomCharacters(): Promise<CharacterStructure[]> {
+    const response = await fetch(this.privateApiUrl);
+    if (!response.ok) throw new Error(response.status + '' + response.status);
+    return response.json();
+  }
+
+  async createCharacter(
+    newCharacter: Partial<CharacterStructure>
+  ): Promise<CharacterStructure> {
+    const response = await fetch(this.privateApiUrl, {
+      method: 'POST',
+      body: JSON.stringify(newCharacter),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    return response.json();
+  }
+
+  async modifyCharacter(
+    id: CharacterStructure['id'],
+    updatedCharacter: Partial<CharacterStructure>
+  ): Promise<CharacterStructure> {
+    const finalUrl = `${this.privateApiUrl}/${id}`;
+    const response = await fetch(finalUrl, {
+      method: 'PATCH',
+      body: JSON.stringify(updatedCharacter),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    return response.json();
+  }
+
+  async deleteCharacter(
+    id: CharacterStructure['id']
+  ): Promise<CharacterStructure[]> {
+    const finalUrl = `${this.privateApiUrl}/${id}`;
+    const response = await fetch(finalUrl, {
+      method: 'DELETE',
+    });
+    return response.json();
+  }
+}
