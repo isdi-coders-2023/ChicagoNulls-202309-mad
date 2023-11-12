@@ -1,6 +1,6 @@
 import { CharacterStructure } from '../models/eldenring.api';
 
-export type ActionCharacterTypes = 'load';
+export type ActionCharacterTypes = 'load' | 'create' | 'update' | 'delete';
 
 export type AppState = {
   characters: CharacterStructure[];
@@ -12,6 +12,16 @@ export type AppState = {
 type ActionCharactersAll = {
   type: 'load';
   payload: CharacterStructure[];
+};
+
+type ActionCharactersCharacter = {
+  type: 'create' | 'update';
+  payload: CharacterStructure;
+};
+
+type ActionCharacterId = {
+  type: 'delete';
+  payload: CharacterStructure['id'];
 };
 
 export type ChangePage = {
@@ -31,6 +41,8 @@ export type SelectedValue = {
 
 export type ActionCharacters =
   | ActionCharactersAll
+  | ActionCharactersCharacter
+  | ActionCharacterId
   | ChangePage
   | SelectedValue
   | FilterCharacters;
@@ -56,5 +68,26 @@ export const filterCharacters = (
 
 export const selectedValue = (payload: string): ActionCharacters => ({
   type: 'select',
+  payload,
+});
+
+export const createActionCreator = (
+  payload: CharacterStructure
+): ActionCharacters => ({
+  type: 'create',
+  payload,
+});
+
+export const updateActionCreator = (
+  payload: CharacterStructure
+): ActionCharacters => ({
+  type: 'update',
+  payload,
+});
+
+export const deleteActionCreator = (
+  payload: CharacterStructure['id']
+): ActionCharacters => ({
+  type: 'delete',
   payload,
 });
