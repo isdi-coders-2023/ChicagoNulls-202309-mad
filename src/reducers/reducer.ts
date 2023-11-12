@@ -32,31 +32,31 @@ export function charactersReducer(
         selectedValue: payload,
       };
 
-    case 'create':
-      return {
-        characters: [...state.characters, payload],
-        page: state.page,
-        filteredCharacters: state.filteredCharacters,
-        selectedValue: state.selectedValue,
-      };
+    // case 'create':
+    //   return {
+    //     characters: [...state.characters, payload],
+    //     page: state.page,
+    //     filteredCharacters: state.filteredCharacters,
+    //     selectedValue: state.selectedValue,
+    //   };
 
-    case 'update':
-      return {
-        characters: state.characters.map((item) =>
-          item.id === payload.id ? payload : item
-        ),
-        page: state.page,
-        filteredCharacters: state.filteredCharacters,
-        selectedValue: state.selectedValue,
-      };
+    // case 'update':
+    //   return {
+    //     characters: state.characters.map((item) =>
+    //       item.id === payload.id ? payload : item
+    //     ),
+    //     page: state.page,
+    //     filteredCharacters: state.filteredCharacters,
+    //     selectedValue: state.selectedValue,
+    //   };
 
-    case 'delete':
-      return {
-        characters: state.characters.filter((item) => item.id !== payload),
-        page: state.page,
-        filteredCharacters: state.filteredCharacters,
-        selectedValue: state.selectedValue,
-      };
+    // case 'delete':
+    //   return {
+    //     characters: state.characters.filter((item) => item.id !== payload),
+    //     page: state.page,
+    //     filteredCharacters: state.filteredCharacters,
+    //     selectedValue: state.selectedValue,
+    //   };
 
     default:
       return { ...state };

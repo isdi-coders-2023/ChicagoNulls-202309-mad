@@ -15,43 +15,39 @@ const renderComponent = async (route: InitialEntry) => {
   });
 };
 
-const mockComponent = (content: React.ReactNode) => {
-  return {
-    __esModule: true,
-    default: () => {
-      return content;
-    },
-  };
+const mockComponent = (content: React.ReactNode) => ({
+  __esModule: true,
+  default: () => content,
+});
+
+const mockPage = (pagePath: string, content: React.ReactNode) => {
+  jest.mock(pagePath, () => mockComponent(content));
 };
 
-jest.mock('../pages/custom.library/custom.library.page', () => {
-  return mockComponent(
-    <div data-testid="mocked-custom-library">
-      Mocked Custom Library Component
-    </div>
-  );
-});
+mockPage(
+  '../pages/custom.library/custom.library.page',
+  <div data-testid="mocked-custom-library">Mocked Custom Library Component</div>
+);
 
-jest.mock('../pages/character.page/character.page', () => {
-  return mockComponent(<p data-testid="mocked-home">Mocked Home Component</p>);
-});
+mockPage(
+  '../pages/character.page/character.page',
+  <p data-testid="mocked-home">Mocked Home Component</p>
+);
 
-jest.mock('../pages/error.page/error.page', () => {
-  return mockComponent(
-    <span data-testid="mocked-error-page">Mocked Error Page Component</span>
-  );
-});
+mockPage(
+  '../pages/error.page/error.page',
+  <span data-testid="mocked-error-page">Mocked Error Page Component</span>
+);
 
-jest.mock('../pages/form.page/form.tsx', () => {
-  return mockComponent(
-    <span data-testid="mocked-form">Mocked Form Component</span>
-  );
-});
-jest.mock('../pages/details.page/details.page', () => {
-  return mockComponent(
-    <h1 data-testid="mocked-details-page">Mocked Details Page Component</h1>
-  );
-});
+mockPage(
+  '../pages/form.page/form.tsx',
+  <span data-testid="mocked-form">Mocked Form Component</span>
+);
+
+mockPage(
+  '../pages/details.page/details.page',
+  <h1 data-testid="mocked-details-page">Mocked Details Page Component</h1>
+);
 
 describe('When we render', () => {
   test('the component should render Custom Library', async () => {
@@ -77,10 +73,10 @@ describe('When we render', () => {
     const element = screen.getByTestId('mocked-details-page');
     expect(element).toBeInTheDocument();
   });
-});
 
-test('the component should render Form', async () => {
-  await renderComponent('/form');
-  const element = screen.getByTestId('mocked-form');
-  expect(element).toBeInTheDocument();
+  test('the component should render Form', async () => {
+    await renderComponent('/form');
+    const element = screen.getByTestId('mocked-form');
+    expect(element).toBeInTheDocument();
+  });
 });
