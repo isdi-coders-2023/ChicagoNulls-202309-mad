@@ -1,3 +1,4 @@
+
 .button-form {
   background-color: transparent;
   padding: 15px;
@@ -91,6 +92,8 @@ form {
   display: flex;
   justify-items: center;
   flex-direction: column;
+  background-color: transparent;
+  border: none;
 }
 .options-container {
   display: flex;
@@ -125,4 +128,5 @@ form {
     justify-content: space-around;
     align-items: flex-start;
   }
+
 }

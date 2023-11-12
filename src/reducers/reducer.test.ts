@@ -1,7 +1,19 @@
 import { charactersReducer } from './reducer';
 
-describe('Auth Reducer', () => {
-  test('should return load correclty ', () => {
+describe('Characters Reducer', () => {
+  const initialState = {
+    characters: [],
+    page: 1,
+    filteredCharacters: [],
+    selectedValue: '',
+  };
+
+  const testAction = (type: any, payload: any, expectedState: any) => {
+    const newState = charactersReducer(initialState, { type, payload });
+    expect(newState).toEqual(expectedState);
+  };
+
+  test('should return load correctly', () => {
     const mockPayload = {
       characters: [],
       page: 1,
@@ -9,22 +21,10 @@ describe('Auth Reducer', () => {
       selectedValue: '',
     };
 
-    const newState = charactersReducer(
-      {
-        characters: [],
-        page: 1,
-        filteredCharacters: [],
-        selectedValue: '',
-      },
-      {
-        type: 'load',
-        payload: [],
-      }
-    );
-    expect(newState).toEqual(mockPayload);
+    testAction('load', [], mockPayload);
   });
 
-  test('should return page correclty ', () => {
+  test('should return page correctly', () => {
     const mockPayload = {
       characters: [],
       page: 1,
@@ -32,22 +32,10 @@ describe('Auth Reducer', () => {
       selectedValue: '',
     };
 
-    const newState = charactersReducer(
-      {
-        characters: [],
-        page: 1,
-        filteredCharacters: [],
-        selectedValue: '',
-      },
-      {
-        type: 'page',
-        payload: 1,
-      }
-    );
-    expect(newState).toEqual(mockPayload);
+    testAction('page', 1, mockPayload);
   });
 
-  test('should return page correclty ', () => {
+  test('should return filter correctly', () => {
     const mockPayload = {
       characters: [],
       page: 1,
@@ -55,18 +43,21 @@ describe('Auth Reducer', () => {
       selectedValue: '',
     };
 
-    const newState = charactersReducer(
-      {
-        characters: [],
-        page: 1,
-        filteredCharacters: [],
-        selectedValue: '',
-      },
-      {
-        type: 'select',
-        payload: '',
-      }
-    );
-    expect(newState).toEqual(mockPayload);
+    testAction('filter', [], mockPayload);
+  });
+
+  test('should return select correctly', () => {
+    const mockPayload = {
+      characters: [],
+      page: 1,
+      filteredCharacters: [],
+      selectedValue: 'selectedValue',
+    };
+
+    testAction('select', 'selectedValue', mockPayload);
+  });
+
+  test('should return default correctly', () => {
+    testAction('unknown', 'somePayload', initialState);
   });
 });

@@ -1,6 +1,16 @@
 # Week 5 - Proyecto en equipo
 
-Formado por: Sergi - Carlos - Ivan Speziale - Alejandro
+Formado por: Sergi Casiano - Carlos Solis - Ivan Speziale - Alejandro Irastorza
+
+- Nombre y url API: https://docs.eldenring.fanapis.com/docs/
+- Link Vercel: https://chicago-nulls-202309-mad.vercel.app/
+- Link Figma: https://www.figma.com/files/team/1302585285669690358
+- Link GitHub: https://github.com/isdi-coders-2023/ChicagoNulls-202309-mad
+
+# Tech Stack
+
+Deployment: Vercel
+Engine: React FLUX
 
 Tenéis que crear una SPA con varias 'páginas' en React, gestionando el estado común con context + reducer (useReducer). Usaremos scss + css-module y la app debe ser responsive (mobile + desktop) / mobile first.
 
@@ -63,3 +73,8 @@ Entregamos en Discord:
 - Link Figma
 - Link Trello
 - Link Listado componentes
+
+# Tech Stack
+
+Deployment: Vercel
+Engine: React FLUX
