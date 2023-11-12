@@ -1,38 +1,45 @@
 import { CharacterStructure } from '../models/eldenring.api';
-import { loadActionCreator } from './actions';
+import {
+  loadActionCreator,
+  changePage,
+  filterCharacters,
+  selectedValue,
+} from './actions';
 
 describe('Action Creators', () => {
-  it('should create a "load" action', () => {
-    const characters: CharacterStructure[] = [
-      {
-        id: '1',
-        name: 'Character 1',
-        image: 'image1.jpg',
-        description: 'Description of Character 1',
-        stats: {
-          level: '10',
-          vigor: '15',
-          mind: '10',
-          strength: '20',
-        },
-      },
-      {
-        id: '2',
-        name: 'Character 2',
-        image: 'image2.jpg',
-        description: 'Description of Character 2',
-        stats: {
-          level: '8',
-          vigor: '12',
-          mind: '8',
-          strength: '18',
-        },
-      },
-    ];
+  test('should create a "load" action', () => {
+    const characters: CharacterStructure[] = [];
 
     const action = loadActionCreator(characters);
 
     expect(action.type).toBe('load');
     expect(action.payload).toEqual(characters);
+  });
+
+  test('should create a "changePage" action', () => {
+    const page = 2;
+
+    const action = changePage(page);
+
+    expect(action.type).toBe('page');
+    expect(action.payload).toBe(page);
+  });
+
+  test('should create a "filterCharacters" action', () => {
+    const filteredCharacters: CharacterStructure[] = [];
+
+    const action = filterCharacters(filteredCharacters);
+
+    expect(action.type).toBe('filter');
+    expect(action.payload).toEqual(filteredCharacters);
+  });
+
+  test('should create a "selectedValue" action', () => {
+    const value = 'someValue';
+
+    const action = selectedValue(value);
+
+    expect(action.type).toBe('select');
+    expect(action.payload).toBe(value);
   });
 });
