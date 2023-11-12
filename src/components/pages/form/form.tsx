@@ -23,7 +23,7 @@ export default function Form() {
   };
   return (
     <div className="form-container">
-      <form onSubmit={handleSubmit} role="form">
+      <form onSubmit={handleSubmit}>
         <h2>Form Api</h2>
 
         <div className="form-group">
@@ -74,6 +74,7 @@ export default function Form() {
               <input
                 type="text"
                 name="mind"
+                id="mind"
                 value={values.mind}
                 onChange={handleChange}
                 required
@@ -86,6 +87,7 @@ export default function Form() {
               <input
                 type="text"
                 name="strength"
+                id="strength"
                 value={values.strength}
                 onChange={handleChange}
                 required
@@ -98,6 +100,7 @@ export default function Form() {
               <input
                 type="text"
                 name="vigor"
+                id="vigor"
                 value={values.vigor}
                 onChange={handleChange}
                 required
