@@ -4,6 +4,9 @@ import {
   changePage,
   filterCharacters,
   selectedValue,
+  createActionCreator,
+  updateActionCreator,
+  deleteActionCreator,
 } from './actions';
 
 describe('Action Creators', () => {
@@ -41,5 +44,64 @@ describe('Action Creators', () => {
 
     expect(action.type).toBe('select');
     expect(action.payload).toBe(value);
+  });
+
+  test('should create a "create" action', () => {
+    const character: CharacterStructure = {
+      id: '',
+      name: '',
+      image: '',
+      description: '',
+      stats: {
+        level: '',
+        vigor: '',
+        mind: '',
+        endurance: undefined,
+        strength: '',
+        dexterity: undefined,
+        intelligence: undefined,
+        faith: undefined,
+        arcane: undefined,
+      },
+    };
+
+    const action = createActionCreator(character);
+
+    expect(action.type).toBe('create');
+    expect(action.payload).toEqual(character);
+  });
+
+  test('should create an "update" action', () => {
+    const character: CharacterStructure = {
+      id: '',
+      name: '',
+      image: '',
+      description: '',
+      stats: {
+        level: '',
+        vigor: '',
+        mind: '',
+        endurance: undefined,
+        strength: '',
+        dexterity: undefined,
+        intelligence: undefined,
+        faith: undefined,
+        arcane: undefined,
+      },
+    };
+
+    const action = updateActionCreator(character);
+
+    expect(action.type).toBe('update');
+    expect(action.payload).toEqual(character);
+  });
+
+  test('should create a "delete" action', () => {
+    const characterId = 'someId';
+
+    const action = deleteActionCreator(characterId);
+
+    expect(action.type).toBe('delete');
+    expect(action.payload).toBe(characterId);
   });
 });

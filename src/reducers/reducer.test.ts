@@ -8,9 +8,9 @@ describe('Characters Reducer', () => {
     selectedValue: '',
   };
 
-  const testAction = (type: any, payload: any, expected: any) => {
+  const testAction = (type: any, payload: any, expectedState: any) => {
     const newState = charactersReducer(initialState, { type, payload });
-    expect(newState).toEqual(expected);
+    expect(newState).toEqual(expectedState);
   };
 
   test('should return load correctly', () => {
@@ -20,6 +20,7 @@ describe('Characters Reducer', () => {
       filteredCharacters: [],
       selectedValue: '',
     };
+
     testAction('load', [], mockPayload);
   });
 
@@ -30,6 +31,7 @@ describe('Characters Reducer', () => {
       filteredCharacters: [],
       selectedValue: '',
     };
+
     testAction('page', 1, mockPayload);
   });
 
@@ -40,6 +42,7 @@ describe('Characters Reducer', () => {
       filteredCharacters: [],
       selectedValue: '',
     };
+
     testAction('filter', [], mockPayload);
   });
 
@@ -50,14 +53,11 @@ describe('Characters Reducer', () => {
       filteredCharacters: [],
       selectedValue: 'selectedValue',
     };
+
     testAction('select', 'selectedValue', mockPayload);
   });
 
   test('should return default correctly', () => {
-    const unknownAction = {
-      type: 'unknown',
-      payload: 'somePayload',
-    };
-    testAction('unknown', unknownAction.payload, initialState);
+    testAction('unknown', 'somePayload', initialState);
   });
 });
