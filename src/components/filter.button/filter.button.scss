@@ -2,14 +2,14 @@
   float: right;
   position: relative;
   bottom: 7vh;
-  right: 6vh;
-  font-size: 1 rem;
+  right: 5vh;
+  font-size: 1.2rem;
 }
 
 select {
   border: 1px solid transparent;
   border-radius: 25px;
-  background: rgba(0, 0, 0, 0.1);
+  background-color: rgba(6, 53, 0, 0.444);
   color: #ffc34f;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
   font-family: 'MedievalSharp';
@@ -35,8 +35,7 @@ label {
 
 @media (width < 480px) {
   .filter-button {
-    float: right;
     position: relative;
-    bottom: 3vh;
+    bottom: 5vh;
   }
 }

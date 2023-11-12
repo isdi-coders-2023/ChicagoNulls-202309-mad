@@ -37,15 +37,15 @@ nav {
 @media (width < 480px) {
   .menu-list {
     border: 1px solid transparent;
-    border-top: 1.5px solid black;
-    border-bottom: 1.5px solid black;
-    border-radius: 7px;
+    margin-top: 15px;
+    margin-left: 60px;
+    border-radius: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     white-space: nowrap;
   }
 
   .menu-list.open {
-    background-color: rgb(141, 136, 136);
+    background-color: rgba(6, 53, 0, 0.444);
   }
 }
 
