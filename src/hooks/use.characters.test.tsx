@@ -44,5 +44,24 @@ describe('Given useCharacter custom Hook', () => {
       });
       expect(result.current.appState.page).toBe(0);
     });
+
+    // Nuevos
+
+    it('should handle filter correctly', () => {
+      const { result } = renderHook(() => useCharacters());
+      const event = {
+        preventDefault: jest.fn(),
+        target: { value: 'someValue' },
+      } as unknown as React.SyntheticEvent;
+
+      act(() => {
+        result.current.handleFilter(event);
+      });
+
+      expect(result.current.appState.selectedValue).toBe('someValue');
+      expect(result.current.appState.filteredCharacters).toHaveLength(0);
+      expect(result.current.appState.filteredCharacters).toEqual([]);
+      expect(result.current.appState.page).toBe(0);
+    });
   });
 });
