@@ -14,7 +14,12 @@ export function Card({ character }: Props) {
         <img src={imageUrl + character.id + imageType} alt={character.name} />
       </li>
       <button className="details">
-        <Link to={'/details/' + character.id}>Show Details</Link>
+        <Link
+          to={'/details/' + character.id}
+          style={{ textDecoration: 'none', color: 'inherit' }}
+        >
+          Show Details
+        </Link>
       </button>
     </div>
   );

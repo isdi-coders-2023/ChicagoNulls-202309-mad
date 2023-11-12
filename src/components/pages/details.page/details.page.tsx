@@ -48,7 +48,9 @@ export default function DetailsPage() {
       </div>
       <footer className="details-footer">
         <button>
-          <Link to="/">Go back</Link>
+          <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+            Go back
+          </Link>
         </button>
       </footer>
     </div>
