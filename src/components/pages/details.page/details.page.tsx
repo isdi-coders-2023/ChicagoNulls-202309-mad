@@ -43,6 +43,8 @@ export default function DetailsPage() {
           <img
             src={findCharacter.image}
             alt={`${findCharacter.name} image showing itself with game-themed clothes.`}
+            height={400}
+            width={300}
           />
         </aside>
       </div>
