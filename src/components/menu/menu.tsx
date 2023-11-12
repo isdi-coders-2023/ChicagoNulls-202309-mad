@@ -21,6 +21,8 @@ export function Menu({ options }: Props) {
         alt="icono de menu plegable"
         className="burger-icon"
         onClick={toggleMenu}
+        height={50}
+        width={50}
       />
       <ul className={`menu-list ${isMenuOpen ? 'open' : ''}`}>
         {options.map((item) => (
