@@ -1,18 +1,6 @@
 import { charactersReducer } from './reducer';
 
 describe('Characters Reducer', () => {
-  const initialState = {
-    characters: [],
-    page: 1,
-    filteredCharacters: [],
-    selectedValue: '',
-  };
-
-  const testAction = (type: any, payload: any, expected: any) => {
-    const newState = charactersReducer(initialState, { type, payload });
-    expect(newState).toEqual(expected);
-  };
-
   test('should return load correctly', () => {
     const mockPayload = {
       characters: [],
@@ -20,7 +8,20 @@ describe('Characters Reducer', () => {
       filteredCharacters: [],
       selectedValue: '',
     };
-    testAction('load', [], mockPayload);
+
+    const newState = charactersReducer(
+      {
+        characters: [],
+        page: 1,
+        filteredCharacters: [],
+        selectedValue: '',
+      },
+      {
+        type: 'load',
+        payload: [],
+      }
+    );
+    expect(newState).toEqual(mockPayload);
   });
 
   test('should return page correctly', () => {
@@ -30,7 +31,20 @@ describe('Characters Reducer', () => {
       filteredCharacters: [],
       selectedValue: '',
     };
-    testAction('page', 1, mockPayload);
+
+    const newState = charactersReducer(
+      {
+        characters: [],
+        page: 1,
+        filteredCharacters: [],
+        selectedValue: '',
+      },
+      {
+        type: 'page',
+        payload: 1,
+      }
+    );
+    expect(newState).toEqual(mockPayload);
   });
 
   test('should return filter correctly', () => {
@@ -40,7 +54,20 @@ describe('Characters Reducer', () => {
       filteredCharacters: [],
       selectedValue: '',
     };
-    testAction('filter', [], mockPayload);
+
+    const newState = charactersReducer(
+      {
+        characters: [],
+        page: 1,
+        filteredCharacters: [],
+        selectedValue: '',
+      },
+      {
+        type: 'filter',
+        payload: [],
+      }
+    );
+    expect(newState).toEqual(mockPayload);
   });
 
   test('should return select correctly', () => {
@@ -50,14 +77,37 @@ describe('Characters Reducer', () => {
       filteredCharacters: [],
       selectedValue: 'selectedValue',
     };
-    testAction('select', 'selectedValue', mockPayload);
+
+    const newState = charactersReducer(
+      {
+        characters: [],
+        page: 1,
+        filteredCharacters: [],
+        selectedValue: '',
+      },
+      {
+        type: 'select',
+        payload: 'selectedValue',
+      }
+    );
+    expect(newState).toEqual(mockPayload);
   });
 
   test('should return default correctly', () => {
+    const initialState = {
+      characters: [],
+      page: 1,
+      filteredCharacters: [],
+      selectedValue: 'selectedValue',
+    };
+
     const unknownAction = {
       type: 'unknown',
       payload: 'somePayload',
     };
-    testAction('unknown', unknownAction.payload, initialState);
+
+    const newState = charactersReducer(initialState, unknownAction as any);
+
+    expect(newState).toEqual(initialState);
   });
 });

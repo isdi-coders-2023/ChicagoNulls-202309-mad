@@ -4,6 +4,8 @@ type Props = {
   character: CharacterStructure;
 };
 export function CardPrivate({ character }: Props) {
+  const imageUrl = 'https://eldenring.fanapis.com/images/classes/';
+  const imageType = '.png';
   return (
     <div className="card-container">
       <li className="Card">
@@ -17,8 +19,10 @@ export function CardPrivate({ character }: Props) {
         </div>
         <div>
           <img
-            src="https://eldenring.fanapis.com/images/classes/17f69874f7bl0i32gmqaffmbfral8f.png"
-            alt="Hero"
+            src={imageUrl + character.id + imageType}
+            alt={character.name}
+            height={400}
+            width={300}
           />
         </div>
         <button className="details">{character.name}</button>
