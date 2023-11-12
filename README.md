@@ -1,6 +1,6 @@
 # Week 5 - Proyecto en equipo
 
-Formado por: Sergi Casiano - Carlos Solis - Ivana Speziale- Alejandro Irastorza
+Formado por: Sergi Casiano - Carlos Solis - Ivan Speziale - Alejandro Irastorza
 
 - Nombre y url API: https://docs.eldenring.fanapis.com/docs/
 - Link Vercel: https://chicago-nulls-202309-mad.vercel.app/
