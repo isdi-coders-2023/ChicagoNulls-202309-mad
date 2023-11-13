@@ -1,26 +1,24 @@
-
-.button-form {
-  background-color: transparent;
-  padding: 15px;
-  cursor: pointer;
+.button-form,
+button {
   font-family: 'MedievalSharp', cursive;
-  margin-left: 30px;
   color: #ffc34f;
+  background-color: transparent;
   border-top: 1px solid #ffc34f;
   border-bottom: 1px solid #ffc34f;
   display: flex;
   text-align: center;
-  margin-inline: 3rem;
 }
+
+.button-form {
+  padding: 15px;
+  cursor: pointer;
+  margin-left: 30px;
+}
+
 button {
-  font-family: 'MedievalSharp', cursive;
   margin-left: 20px;
-  color: #ffc34f;
-  display: flex;
-  text-align: center;
   justify-content: center;
   width: 250px;
-  background-color: transparent;
 }
 
 input {
@@ -35,26 +33,30 @@ input {
   margin-left: 30px;
   background-color: #ffc34f;
 }
+
 label {
   margin-left: 30px;
 }
 
-.name-container {
+.name-container,
+.form-description,
+.level-form,
+.mind-form,
+.strength-form,
+.vigor-form,
+.description-text {
   display: flex;
   align-items: center;
   border-top: 1px solid #ffc34f;
   border-bottom: 1px solid #ffc34f;
 }
+
 .form-description {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border-top: 1px solid #ffc34f;
-  border-bottom: 1px solid #ffc34f;
-  min-width: 850;
-  @media (width > 480px) {
-    align-items: flex-start;
-  }
+  min-width: 850px;
+
   input[name='description'] {
     width: 50%;
     height: 80px;
@@ -62,39 +64,23 @@ label {
     font-size: 15px;
   }
 }
+
 .description-text {
   margin-bottom: 10px;
 }
-.level-form {
-  display: flex;
-  align-items: center;
-}
-.mind-form {
-  display: flex;
-  align-items: center;
-}
 
-.strength-form {
-  display: flex;
-  align-items: center;
-  margin-left: 0px;
-}
-.vigor-form {
-  display: flex;
-  align-items: center;
-}
-.description-text {
-  display: flex;
-  align-items: center;
-  min-width: 850px;
-}
-form {
+.form {
   display: flex;
   justify-items: center;
   flex-direction: column;
   background-color: transparent;
   border: none;
+
+  @media (min-width: 480px) {
+    max-width: 600px;
+  }
 }
+
 .options-container {
   display: flex;
   flex-direction: column;
@@ -120,7 +106,6 @@ form {
 
   form {
     width: 100%;
-    max-width: 600px;
   }
 
   @media (min-width: 480px) {
@@ -128,5 +113,4 @@ form {
     justify-content: space-around;
     align-items: flex-start;
   }
-
 }
